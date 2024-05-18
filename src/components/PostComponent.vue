@@ -1,15 +1,15 @@
 <template>
-    <section>
+    <div class="post-component">
         <h2>Postagem</h2>
 
         <div>Titulo: {{ title }}</div>
         <div>Descrição: {{ description }}</div>
         <div>Link: {{ link }}</div>
-    </section>
+    </div>
 </template>
 
 <script>
-import { ref, defineComponent } from 'vue';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
     props: {
@@ -21,5 +21,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
+    .post-component {
+        background-color: red;
+    }
 </style>
