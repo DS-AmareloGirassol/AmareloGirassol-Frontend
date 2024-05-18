@@ -1,11 +1,11 @@
 <template>
-    <div class="post-component">
+    <section>
         <h2>Postagem</h2>
 
         <div>Titulo: {{ title }}</div>
         <div>Descrição: {{ description }}</div>
         <div>Link: {{ link }}</div>
-    </div>
+    </section>
 </template>
 
 <script>
