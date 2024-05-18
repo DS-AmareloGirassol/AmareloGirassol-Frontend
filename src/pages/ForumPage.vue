@@ -3,7 +3,7 @@
     <h1>Forum Page</h1>
 
     <div v-for="postagem in postagens" :key="postagem.id">
-      <PostComponent :title="postagem.title" :description="postagem.description" :link="postagem.link"/>
+      <PostComponent :id="postagem.id" :title="postagem.title" :description="postagem.description" :link="postagem.link"/>
     </div>
   </section>
 </template>

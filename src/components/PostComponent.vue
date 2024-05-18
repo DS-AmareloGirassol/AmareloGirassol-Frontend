@@ -1,6 +1,6 @@
 <template>
     <div class="post-component">
-        <h2>Postagem</h2>
+        <h2>Postagem {{ id }}</h2>
 
         <div>Titulo: {{ title }}</div>
         <div>Descrição: {{ description }}</div>
@@ -13,6 +13,7 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
     props: {
+        id: String,
         title: String,
         description: String,
         link: String
