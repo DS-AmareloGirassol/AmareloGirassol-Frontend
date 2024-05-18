@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { ref, defineComponent } from 'vue';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
     props: {
@@ -21,5 +21,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
+    .post-component {
+        background-color: red;
+    }
 </style>
