@@ -1,4 +1,4 @@
-<template>
+<template> <!--HTML-->
     <div class="post-component">
         <h2>Postagem</h2>
 
@@ -8,7 +8,9 @@
     </div>
 </template>
 
-<script>
+
+
+<script> //jascript
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -20,8 +22,15 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+
+
+<style scoped> /*CSS*/
     .post-component {
-        background-color: red;
+        margin-left: 235px;
+        margin-right: 235px;
+        background-color: #B6D9B2;
+        border-radius: 10px;
+
     }
+
 </style>
