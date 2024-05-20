@@ -1,6 +1,9 @@
 <template>
   <section>
     <h1>Forum Page</h1>
+    <div>
+
+    </div>
 
     <div v-for="postagem in postagens" :key="postagem.id">
       <PostComponent :title="postagem.title" :description="postagem.description" :link="postagem.link"/>
@@ -45,5 +48,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
+   .header {
+        background-color: #008137;
+    }
 </style>
