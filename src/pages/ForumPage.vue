@@ -1,6 +1,7 @@
   
-    <template>
-      <section>
+<template>
+  <html>
+    <section>
       <header>
         <nav>
           <h1><\UnbConnect></h1>
@@ -9,20 +10,24 @@
             <li>Início</li>
             <li>Nosso Impacto</li>
             <li>Serviços</li>
-            <li>Somos</li>
-          </ul>
-        </nav>
+            <li>Quem Somos</li>
+            </ul>
+          </nav>
       </header>
-      <body>
-        <div v-for="postagem in postagens" :key="postagem.id">
-        <PostComponent :title="postagem.title" :description="postagem.description" :link="postagem.link"/>
-      </div>
-    </body>
-      </section>
-      <footer> 
-        voluptas asperiores libero mollitia distin
-      </footer>
-    </template>
+          <body>
+            <div v-for="postagem in postagens" :key="postagem.id">
+                  <PostComponent :title="postagem.title" :description="postagem.description" :link="postagem.link"/>
+            </div>
+          </body>
+    </section>
+    <footer>
+      <p>©2024, UnBConnect.</p>
+      <p>Amarelo Girassol - Desenvolvimento de Software, 2024/1.</p>
+
+    </footer>
+  </html>
+</template>
+    
 
 <script>
 import { ref, defineComponent } from 'vue';
@@ -63,41 +68,47 @@ export default defineComponent({
 <style scoped>
 
 *  {
+  /* defini todas as tags de "espaçamentos" */
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-html, body {
-  width: 100%;
-  height: 100%;
-}
-
 body {
-background-color: brown;
+  /* corpo */
+background-color: #FFFFFF;
+font-family: 'Roboto', 'Arial', sans-serif;
 }
 
 header {
+  /* cabeçalho */
   background-color: #008137;
+  padding: 11px 0; 
+  color: #FFFFFF;
+  width: 100%;
+  bottom: 0;
+  left: 0;
 }
 
-header > h1 {
-  padding: 15px;
-}
-
-.content {
-  flex: 1; /* Ocupa o espaço disponível, empurrando o footer para o fim */
-}
 
 ul {
   display: flex;
   flex-direction: row;
-  gap: 70px;
+  gap: 100px; 
+  /* separação entre cada item da barra de navegação */
 }
 
 footer {
-  background-color: blue;
-  padding: 10px;
+  /* rodapé */
+  background-color: #12017D;
+  padding: 26px 0;
   text-align: center;
+  color:#FFFFFF;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+
+  
 }
 </style>
