@@ -9,8 +9,8 @@
 </template>
 
 
+<script>
 
-<script> //jascript
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -24,6 +24,7 @@ export default defineComponent({
 
 
 
+
 <style scoped> /*CSS*/
     .post-component {
         margin-left: 235px;
@@ -34,3 +35,6 @@ export default defineComponent({
     }
 
 </style>
+
+
+
