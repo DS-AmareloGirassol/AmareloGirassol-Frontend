@@ -48,7 +48,9 @@ export default defineComponent({
 </script>
 
 <style scoped>
-   .header {
+   div{ 
+        width: 1440px;
+        height: 64px ;
         background-color: #008137;
     }
 </style>
