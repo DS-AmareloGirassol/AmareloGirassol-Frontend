@@ -1,18 +1,15 @@
-<template>
+<template> <!--HTML-->
     <div class="post-component">
-        <h2>Postagem</h2>
+        <h2 class="title">Título</h2>
 
-        <div>Titulo: {{ title }}</div>
-        <div>Descrição: {{ description }}</div>
-        <div>Link: {{ link }}</div>
+        <div class="description">Descrição: {{ description }}</div>
+        <div class="link">Link: {{ link }}</div>
     </div>
 </template>
 
 
-
-
-
 <script>
+
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -27,11 +24,35 @@ export default defineComponent({
 
 
 
-
-
-<style scoped>
+<style scoped> /*CSS*/
     .post-component {
+        margin-left: 235px;
+        margin-right: 235px;
         background-color: #B6D9B2;
+        border-radius: 10px;
+    }
+    
+    .description {
+        display: flex;
+        position: relative;
+        margin-left: 300px;
+    }
+
+    .link {
+        display: flex;
+        position: relative;
+        margin-left: 300px;
+        padding: 0 1px 10px;
+    }
+
+    .title {
+        display: flex;
+        position: relative;
+        margin-left: 290px;
+        padding: 10px;
     }
 
 </style>
+
+
+
