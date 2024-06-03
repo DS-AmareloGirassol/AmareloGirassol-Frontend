@@ -17,9 +17,20 @@
       </section>
     </header>
 
-          <body>
+     <body>
+      <!--
             <div v-for="postagem in postagens" :key="postagem.id">
                   <PostComponent :title="postagem.title" :description="postagem.description" :link="postagem.link"/>
+                  
+      </div> -->
+
+
+            <div v-for="postagem in postagens" :key="postagem.id">
+            <PostComponent 
+            :title="postagem.title" 
+            :description="postagem.description" 
+            :link="postagem.link" 
+            :imgSrc="postagem.imgSrc"/>
             </div>
             
         
@@ -43,51 +54,53 @@ export default defineComponent({
     return {
       postagens: [
         {
-          id: '1',
-          title: 'aaaaaaaa',
-          description: 'aaaaaaaaa',
-          link: 'aaaaaaaaaaaa',
-        },
-        {
           id: '2',
-          title: 'bbbbbbbbbbbbb',
-          description: 'bbbbbbbbbbbb',
-          link: 'bbbbbbbbb'
+          title: 'Engenheria de Software Telegram',
+          description: 'Grupo formado pelos estudantes de software da FGA.',
+          link: 'https://web.telegram.org/a/#-1001383799472',
+          imgSrc: 'https://files.fm/f/k5q764g24x'
+          
         },
         {
           id: '3',
-          title: 'cccccccccc',
-          description: 'cccccccccc',
+          title: '1.24 PIBIC e PIBEX @UnBConnect',
+          description: 'Grupo para informes sobre PIBIC E PIBEX',
+          link: 'bbbbbbbbb'
+        },
+        {
+          id: '4',
+          title: 'Cardápio RU',
+          description: 'Cardápio de Manhã, Tarde e Noite do Restaurante Universitário',
           link: 'cccccccccc'
         },
         {
-        id: '4',
-          title: 'aaaaaaaa',
-          description: 'aaaaaaaaa',
+        id: '5',
+          title: 'Reinvindicações FGA',
+          description: 'Grupo formado pelos estudantes da FGA, para reinvindicar por melhorias para o campus',
           link: 'aaaaaaaaaaaa'
         },
         {
-          id: '5',
-          title: 'bbbbbbbbbbbbb',
-          description: 'bbbbbbbbbbbb',
+          id: '6',
+          title: 'Guardiões da Saúde',
+          description: 'Grupo de Informes da Disciplina',
           link: 'bbbbbbbbb'
         },
         {
-          id: '6',
-          title: 'cccccccccc',
-          description: 'cccccccccc',
+          id: '7',
+          title: 'UNB - FGA 2024/1',
+          description: 'Grupo formado por calouros da FGA 2024.1',
           link: 'cccccccccc'
         },
         {
-          id: '5',
-          title: 'bbbbbbbbbbbbb',
-          description: 'bbbbbbbbbbbb',
+          id: '8',
+          title: 'Mural da FGA',
+          description: 'Esse é o grupo de informes da FGA, aqui vamos postar informes, notícias, vagas de estágio, processos seletivos ou qualquer outra coisa que seja relevante pros alunos!',
           link: 'bbbbbbbbb'
         },
         {
-          id: '6',
-          title: 'cccccccccc',
-          description: 'cccccccccc',
+          id: '9',
+          title: 'Comunidade GNU/Linux - UnB',
+          description: 'Grupo para trocar informações sobre o sistema operacional Linux',
           link: 'cccccccccc'
         },
       ]
@@ -178,4 +191,6 @@ footer {
 
   
 }
+
+
 </style>
