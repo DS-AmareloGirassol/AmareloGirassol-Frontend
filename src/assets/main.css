@@ -1,3 +1,6 @@
-#app {
-
+html, body {
+    margin:0px !important;
+    padding: 0px !important;
+    background-color: #FFFFFF;
+    font-family: 'Roboto', 'Arial', sans-serif;
 }
