@@ -1,12 +1,49 @@
+  
 <template>
-  <section>
-    <h1>Forum Page</h1>
+  <html>
+    <section>
+      <!-- <HeaderComponent/> -->
+      <header>
+      <section>
+      <h1><\UnbConnect></h1>
+      <nav>
+        <ul>
+          <li>Início</li>
+          <li>Nosso Impacto</li>
+          <li>Serviços</li>
+          <li>Quem Somos</li>
+        </ul>
+    </nav>
+      </section>
+    </header>
 
-    <div v-for="postagem in postagens" :key="postagem.id">
-      <PostComponent :id="postagem.id" :title="postagem.title" :description="postagem.description" :link="postagem.link"/>
-    </div>
-  </section>
+     <body>
+      <!--
+            <div v-for="postagem in postagens" :key="postagem.id">
+                  <PostComponent :title="postagem.title" :description="postagem.description" :link="postagem.link"/>
+                  
+      </div> -->
+
+
+            <div v-for="postagem in postagens" :key="postagem.id">
+            <PostComponent 
+            :title="postagem.title" 
+            :description="postagem.description" 
+            :link="postagem.link" 
+            :imgSrc="postagem.imgSrc"/>
+            </div>
+            
+        
+          </body>
+    </section>
+    <footer>
+      <p>©2024, UnBConnect.</p>
+      <p>Amarelo Girassol - Desenvolvimento de Software, 2024/1.</p>
+
+    </footer>
+  </html>
 </template>
+    
 
 <script>
 import { ref, defineComponent } from 'vue';
@@ -17,33 +54,143 @@ export default defineComponent({
     return {
       postagens: [
         {
-          id: '1',
-          title: 'aaaaaaaa',
-          description: 'aaaaaaaaa',
-          link: 'aaaaaaaaaaaa'
-        },
-        {
           id: '2',
-          title: 'bbbbbbbbbbbbb',
-          description: 'bbbbbbbbbbbb',
-          link: 'bbbbbbbbb'
+          title: 'Engenheria de Software Telegram',
+          description: 'Grupo formado pelos estudantes de software da FGA.',
+          link: 'https://web.telegram.org/a/#-1001383799472',
+          imgSrc: 'https://files.fm/f/k5q764g24x'
+          
         },
         {
           id: '3',
-          title: 'cccccccccc',
-          description: 'cccccccccc',
+          title: '1.24 PIBIC e PIBEX @UnBConnect',
+          description: 'Grupo para informes sobre PIBIC E PIBEX',
+          link: 'bbbbbbbbb'
+        },
+        {
+          id: '4',
+          title: 'Cardápio RU',
+          description: 'Cardápio de Manhã, Tarde e Noite do Restaurante Universitário',
           link: 'cccccccccc'
-        }
+        },
+        {
+        id: '5',
+          title: 'Reinvindicações FGA',
+          description: 'Grupo formado pelos estudantes da FGA, para reinvindicar por melhorias para o campus',
+          link: 'aaaaaaaaaaaa'
+        },
+        {
+          id: '6',
+          title: 'Guardiões da Saúde',
+          description: 'Grupo de Informes da Disciplina',
+          link: 'bbbbbbbbb'
+        },
+        {
+          id: '7',
+          title: 'UNB - FGA 2024/1',
+          description: 'Grupo formado por calouros da FGA 2024.1',
+          link: 'cccccccccc'
+        },
+        {
+          id: '8',
+          title: 'Mural da FGA',
+          description: 'Esse é o grupo de informes da FGA, aqui vamos postar informes, notícias, vagas de estágio, processos seletivos ou qualquer outra coisa que seja relevante pros alunos!',
+          link: 'bbbbbbbbb'
+        },
+        {
+          id: '9',
+          title: 'Comunidade GNU/Linux - UnB',
+          description: 'Grupo para trocar informações sobre o sistema operacional Linux',
+          link: 'cccccccccc'
+        },
       ]
     };
   },
 
   components: {
-    PostComponent
+    PostComponent,
+    // HeaderComponent
   }
 });
+
+// import { ref, defineComponent } from 'vue';
+// import HeaderComponent from '../components/HeaderComponent.vue';
+
+// export default defineComponent({
+//   data() {
+//     return {
+//       UnBConnect: [
+//         {
+//         Fórum,
+//         Quem somos
+//       }
+//       ]     
+//     };
+//   },
+
+//   components: {
+//     HeaderComponent,
+//   }
+// });
 </script>
 
 <style scoped>
+
+*  {
+  /* defini todas as tags de "espaçamentos" */
+  padding: 5;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* corpo */
+background-color: #FFFFFF;
+font-family: 'Roboto', 'Arial', sans-serif;
+
+}
+
+header {
+  /* cabeçalho */
+  background-color: #008137;
+  padding: 11px 0; 
+  color: #FFFFFF;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+nav {
+  display: flex;
+  margin-right: 250px;
+  justify-content: end; /* Alinha os itens do nav para a direita */
+  align-items: center; /* Centraliza verticalmente os itens */
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  gap: 50px; /* Ajusta a separação entre cada item da barra de navegação */
+  list-style-type: none; /* Remove os marcadores de lista padrão */
+  margin: 0;
+  padding: 0;
+}
+
+
+footer {
+  /* rodapé */
+  background-color: #12017D;
+  padding: 26px 0;
+  margin-top: 20px;
+  text-align: center;
+  color:#FFFFFF;
+  position: relative;
+  width: 100%;
+  top: 57px;
+  left: 0;
+
+  
+}
+
 
 </style>
