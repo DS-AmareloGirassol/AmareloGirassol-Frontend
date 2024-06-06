@@ -3,12 +3,16 @@
     <section>
       <HeaderComponent/>
       
-      <div v-for="postagem in postagens" :key="postagem.id">
-        <PostComponent 
-          :title="postagem.title" 
-          :description="postagem.description" 
-          :link="postagem.link" 
-          :imgSrc="postagem.imgSrc"/>
+      <div class="forum-page">
+        <div class="div-list-posts">
+          <div v-for="postagem in postagens" :key="postagem.id">
+            <PostComponent 
+              :title="postagem.title" 
+              :description="postagem.description" 
+              :link="postagem.link" 
+              :imgSrc="postagem.imgSrc"/>
+          </div>
+        </div>
       </div>
 
       <FooterComponet/>
@@ -36,7 +40,7 @@ export default defineComponent({
         {
           id: '3',
           title: '1.24 PIBIC e PIBEX @UnBConnect',
-          description: 'Grupo para informes sobre PIBIC E PIBEX',
+          description: 'Grupo Grupo para informes sobre PIBIC E PIBEGrupo para informes sobre PIBIC E PIBEGrupo para informes sobre PIBIC E PIBEGrupo para informes sobre PIBIC E PIBEGrupo para informes sobre PIBIC E PIBEGrupo para informes sobre PIBIC E PIBEGrupo para informes sobre PIBIC E PIBEGrupo para informes sobre PIBIC E PIBEGrupo para informes sobre PIBIC E PIBEGrupo para informes sobre PIBIC E PIBEGrupo para informes sobre PIBIC E PIBEGrupo para informes sobre PIBIC E PIBEGrupo para informes sobre PIBIC E PIBEpara informes sobre PIBIC E PIBEX',
           link: 'bbbbbbbbb'
         },
         {
@@ -86,27 +90,17 @@ export default defineComponent({
   }
 });
 
-// import { ref, defineComponent } from 'vue';
-// import HeaderComponent from '../components/HeaderComponent.vue';
-
-// export default defineComponent({
-//   data() {
-//     return {
-//       UnBConnect: [
-//         {
-//         Fórum,
-//         Quem somos
-//       }
-//       ]     
-//     };
-//   },
-
-//   components: {
-//     HeaderComponent,
-//   }
-// });
 </script>
 
 <style scoped>
+.forum-page {
+  margin: 100px 0px;
+}
 
+.div-list-posts {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 200px;
+}
 </style>
