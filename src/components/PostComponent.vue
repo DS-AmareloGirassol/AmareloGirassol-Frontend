@@ -15,9 +15,7 @@
     </section>
 </template>
 
-
 <script>
-
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -31,10 +29,7 @@ export default defineComponent({
 });
 </script>
 
-
-
-
-<style scoped> /*CSS*/
+<style scoped>
     .post-component {
         display: flex;
         width: 800px;
@@ -45,7 +40,7 @@ export default defineComponent({
     }
 
     .post-conteudo {
-        margin-left: 10px;
+        margin-left: 20px;
     }
 
     .post-title {
@@ -65,8 +60,7 @@ export default defineComponent({
 
     .post-imagem {
         width: 150px;
-        padding: 20px;
-        border-radius: 30px;
+        border-radius: 10px;
     }
     
     .icone{

@@ -34,8 +34,6 @@ export default defineComponent({
           title: 'Engenheria de Software Telegram',
           description: 'Grupo formado pelos estudantes de software da FGA.',
           link: 'https://web.telegram.org/a/#-1001383799472',
-          imgSrc: 'https://files.fm/f/k5q764g24x'
-          
         },
         {
           id: '3',
