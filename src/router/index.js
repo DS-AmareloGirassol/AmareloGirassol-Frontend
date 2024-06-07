@@ -17,6 +17,11 @@ const router = createRouter({
       path: '/cadastro',
       name: 'Cadastro',
       component: () => import('../pages/CadastroPage.vue')
+    },
+    {
+      path: '/disciplina',
+      name: 'Detalhe Disciplina',
+      component: () => import('../pages/DetalheDisciplinaPage.vue')
     }
     
   ]
