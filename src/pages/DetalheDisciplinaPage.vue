@@ -1,37 +1,47 @@
 <template>
     <HeaderComponent/>
     <section class="disciplina-descricao-page">
-        <div class="disciplina-descricao-page-title">Avaliação Geral da Disciplina</div>
-        
+        <div class="disciplina-descricao-page-title">Avaliação Geral da Disciplina
+        </div>
+
         <div class="disciplina-descricao">
             <div class="div-disciplina-conteudo">
                 <div>
-                    <span>Disciplina</span>: {{ disciplina.nome }}
+                    <span><b>Disciplina</b></span>: {{ disciplina.nome }}
                 </div>
                 <div>
-                    <span>Semeste de oferta</span>: {{ disciplina.semesteDeOferta }}
+                    <span><b>Semeste de oferta</b></span>: {{ disciplina.semesteDeOferta }}
                 </div>
                 <div>
-                    <span>Codigo</span>: {{ disciplina.codigo }}
+                    <span><b>Código</b></span>: {{ disciplina.codigo }}
                 </div>
                 <div>
-                    <span>Carga horaria</span>: {{ disciplina.cargaHoraria }}
+                    <span><b>Carga horária</b></span>: {{ disciplina.cargaHoraria }}
                 </div>
             </div>
 
             <div class="div-disciplina-avaliacao">
                 <div>
                     <!-- <span>Metodologia de Avaliação</span>: {{ converterNotaEmAvaliacao(avaliacaoDisciplina.metodologia) }} -->
-                    <span>Metodologia de Avaliação</span>: {{ avaliacaoDisciplina.metodologia }}
+                    <span><b>Metodologia de Avaliação</b></span>: {{ avaliacaoDisciplina.metodologia }}
                 </div>
                 <div>
-                    <span>Didática do Professor</span>: {{ avaliacaoDisciplina.didatica }}
+                    <span><b>Didática do Professor</b></span>: {{ avaliacaoDisciplina.didatica }}
                 </div>
                 <div>
-                    <span>Suporte do Professor e Monitores</span>: {{ avaliacaoDisciplina.suporte }}
+                    <span><b>Suporte do Professor e Monitores</b></span>: {{ avaliacaoDisciplina.suporte }}
                 </div>
                 <div>
-                    <span>Indice de Recomendação</span>: {{ avaliacaoDisciplina.recomendacao }}
+                    <span><b>Índice de Recomendação</b></span>: {{ avaliacaoDisciplina.recomendacao }}
+                </div>
+                <div class="div-disciplina-avaliacao">
+                    <ul class="avaliacao">
+                    <li class="star-icon ativo" data-avaliacao="1"></li>
+                    <li class="star-icon" data-avaliacao="2"></li>
+                    <li class="star-icon" data-avaliacao="3"></li>
+                    <li class="star-icon" data-avaliacao="4"></li>
+                    <li class="star-icon" data-avaliacao="5"></li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -53,12 +63,12 @@
 <script>
 import { ref, defineComponent } from 'vue';
 import HeaderComponent from '../components/HeaderComponent.vue';
-import FooterComponet from '../components/FooterComponent.vue';
+import FooterComponent from '../components/FooterComponent.vue';
 
 export default defineComponent({
     components: {
         HeaderComponent,
-        FooterComponet
+        FooterComponent
     },
 
     data() {
@@ -66,7 +76,7 @@ export default defineComponent({
             disciplina: {
                 id: '1',
                 nome: 'Método de Desenvolvimento de Software',
-                semesteDeOferta: '5',
+                semestreDeOferta: '5',
                 codigo: '12345',
                 cargaHoraria: '60h'
             },
@@ -76,24 +86,27 @@ export default defineComponent({
                 suporte: 4,
                 recomendacao: 2
             }
-        };
-    },
-
-    /* converterNotaEmAvaliacao(nota) {
-        if nota == '1'{
-            return 'Muito Fraco'
         }
-    } */
-});
+    }
+})
 </script>
 
 <style>
 .disciplina-descricao-page {
-    margin: 50px;
+    margin-top: 20px;
+    margin-left: 10%;
+    line-height: 2.5;
 }
 
 .disciplina-descricao-page-title {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
+    font-weight: bold;
+    font-size: 28px;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    color:#067133
+
 }
 
 .disciplina-descricao {
@@ -101,9 +114,10 @@ export default defineComponent({
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
+
 }
 
-.div-disciplina-conteudo{
+.div-disciplina-conteudo{ /*descrição*/
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -111,6 +125,7 @@ export default defineComponent({
 
 .div-disciplina-avaliacao {
     flex: 1;
+    
 }
 
 .div-disciplina-botoes {
@@ -121,6 +136,8 @@ export default defineComponent({
 
 .disciplina-botoes {
     display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
 }
 
 .botao-avaliar {
@@ -132,15 +149,46 @@ export default defineComponent({
     border-radius: 10px;
     text-align: center;
     cursor: pointer;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 25px;
 }
 
 .botao-voltar {
     padding: 5px 0;
     width: 200px;
-    text-align: center;
+    /* text-align: center; */
     color: #ffffff;
     background-color: #2710B9;
     border-radius: 10px;
     cursor: pointer;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 25px;
+}
+
+.avaliacao{
+    display: flex;
+}
+.star-icon{
+    list-style-type: none;
+    border: 1px solid #fff;
+    cursor: pointer;
+    color: #ffe500;
+    font-size: 40px;/* alterar o tamanho das estrelas */
+}
+.star-icon::before{
+    content: "\2605";
+}
+.star-icon.ativo ~ .star-icon::before{
+    content: "\2606";
+}
+.avaliacao:hover .star-icon::before{
+    content: "\2605";
+}
+.star-icon:hover ~ .star-icon::before{
+    content: "\2606";
 }
 </style>
