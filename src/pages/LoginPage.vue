@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+   <div class="container">
     <div class="left-panel">
       <h1 class="titulo">
         <span class="text-UnB">UnB</span><span class="text-Connect">Connect</span>
@@ -7,7 +7,7 @@
     </div>
     <div class="right-panel">
       <h3 class="form-title">Acesse sua Conta</h3>
-      <form class="login-form">
+      <form class="login-form" @submit.prevent="submitForm">
         <label for="email">E-mail</label>
         <input type="email" id="email" name="email" placeholder="Email" class="form-element">
         
@@ -45,11 +45,13 @@ export default {
 body {
   font-family: 'Jost', sans-serif;
   background-color: #EAEAEA; /* Cor de fundo do site */
+  
 }
 
 .container {
   display: flex;
   height: 100vh;
+  color: white;
 }
 
 /* Painel Esquerdo */
@@ -136,15 +138,19 @@ body {
   cursor: pointer;
   border: none;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  
 }
-
-.login-form .btn-entrar:hover {
-  background-color: #434ff0; /* Azul escuro */
+.login-form button::after {
+  position: absolute;
+  right: 20px;
+  transform: translateX(0);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .login-form .btn-entrar:active {
-  background-color: #1e7e34; /* Verde ainda mais escuro ao clicar */
-  transform: translateY(2px); /* Efeito de clique */
+  background-color: #0f551e;
+  transform: translateX(5px);
 }
 
 /* Estilo específico para o link "Esqueci minha senha" */

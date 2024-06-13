@@ -150,7 +150,6 @@ body {
 }
 
 .recuperar-form button::after {
-  content: '>';
   position: absolute;
   right: 20px;
   transform: translateX(0);
