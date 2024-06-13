@@ -17,8 +17,17 @@ const router = createRouter({
       path: '/cadastro',
       name: 'Cadastro',
       component: () => import('../pages/CadastroPage.vue')
-    }
-    
+    },
+    {
+      path: '/assessment',
+      name: 'Assessment',
+      component: () => import('../pages/PageAssessment.vue')
+    },
+    {
+      path: '/recuperar',
+      name: 'Recuperar',
+      component: () => import('../pages/LoginRecuperar.vue')
+    },
   ]
 })
 

@@ -6,34 +6,17 @@
       </h1>
     </div>
     <div class="right-panel">
-      <h3 class="form-title">Registre-se</h3>
-      <form class="cadastro-form" @submit.prevent="submitForm">
-        <label for="nomecompleto">Nome completo</label>
-        <input type="text" id="nomecompleto" v-model="form.nomecompleto" placeholder="Nome completo" class="form-element">
-
-        <label for="email">E-mail</label>
-        <input type="email" id="email" v-model="form.email" placeholder="Seu e-mail" class="form-element">
-
-        <label for="password">Digite sua senha</label>
-        <input type="password" id="password" v-model="form.password" placeholder="Digite sua senha" class="form-element">
-
-        <label for="confirm_password">Confirme sua senha</label>
-        <input type="password" id="confirm_password" v-model="form.confirm_password" placeholder="Confirme sua senha" class="form-element">
-
-        <label for="semestre">Selecione o Semestre</label>
-        <select id="semestre" v-model="form.semestre" class="form-element">
-          <option value="" disabled>Selecione um semestre</option>
-          <option v-for="semestre in semestres" :key="semestre" :value="semestre">{{ semestre }}º Semestre</option>
-        </select>
-
-
-        <button type="submit" class="btn-cadastrar form-element">Cadastrar</button>
-
+      <h3 class="form-title">Recuperar E-mail</h3>
+      <form class="recuperar-form" @submit.prevent="recoverEmail">
+        <label for="email" class="white-text">E-mail</label>
+        <input type="email" id="email" v-model="form.email" placeholder="Digite seu e-mail" class="form-element">
+        <button type="submit" class="btn-recuperar form-element">Recuperar Login</button>
         <div class="separator"></div>
-        <p class="Login-page">Já tem uma conta? 
+        <p class="Login-page">Já lembrou sua conta? 
           <router-link to="/login" class="entrar-link">Entrar</router-link>
         </p>
       </form>
+      <img src="/src/assets/unb-logo.png" alt="Logo UnB" class="unb-logo">
     </div>
   </div>
 </template>
@@ -53,19 +36,12 @@ export default {
       semestres: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     };
   },
-  methods: {
-    submitForm() {
-      if (this.form.password !== this.form.confirm_password) {
-        alert("As senhas não coincidem!");
-        return;
-      }
-      console.log("Formulário enviado:", this.form);
-    }
-  }
+
 }
 </script>
 
 <style>
+
 /* Importação das fontes */
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
@@ -75,6 +51,7 @@ export default {
 body {
   font-family: 'Jost', sans-serif;
   background-color: #EAEAEA;
+  color: white;
 }
 
 .container {
@@ -103,7 +80,7 @@ body {
 }
 
 .left-panel p {
-  color: #4B0082;
+  color: #f0edf3;
   font-size: 14px;
 }
 
@@ -137,13 +114,13 @@ body {
   text-align: center;
 }
 
-.cadastro-form {
+.recuperar-form {
   width: 75%;
   max-width: 400px;
 }
 
 /* Estilo comum para inputs, select e botão */
-.cadastro-form .form-element {
+.recuperar-form .form-element {
   width: 100%;
   padding: 10px;
   margin-top: 5px;
@@ -154,36 +131,41 @@ body {
   box-sizing: border-box;
 }
 
-.cadastro-form input::placeholder {
+.recuperar-form input::placeholder {
   color: #666;
 }
 
-/* Estilo dos labels */
-.cadastro-form label {
-  color: white;
-  font-size: 14px;
-  font-family: 'Inter', sans-serif;
-  margin-bottom: 5px;
-  display: block;
-}
 
-/* Botão Cadastrar */
-.cadastro-form .btn-cadastrar {
-  background-color: #28a745; /* Verde */
+/* Estilo para botões */
+.recuperar-form button {
+  background-color: #1e7e34;
   color: white;
-  font-weight: bold;
   cursor: pointer;
-  border: none;
+  font-weight: bold;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
-.cadastro-form .btn-cadastrar:hover {
-  background-color: #0f551e; /* Verde mais escuro ao passar o mouse */
+.recuperar-form button::after {
+  content: '>';
+  position: absolute;
+  right: 20px;
+  transform: translateX(0);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.cadastro-form .btn-cadastrar:active {
-  background-color: #1e7e34; /* Verde ainda mais escuro ao clicar */
-  transform: translateY(2px); /* Efeito de clique */
+.recuperar-form button:active {
+  background-color: #0f551e;
+  transform: translateX(5px);
+}
+
+.recuperar-form button:active::after {
+  transform: translateX(5px);
+  opacity: 1;
 }
 
 /* Separador */
@@ -195,7 +177,7 @@ body {
 }
 
 /* Estilo para links de registro */
-.Login-page {
+.Login-page{
   text-align: center;
   margin-top: 20px;
   font-size: 14px;
@@ -203,13 +185,8 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
-.Login-page a {
-  color: #28a745;
-  text-decoration: none;
-}
-
 /* Estilo específico para o link 'Entrar' */
-.entrar-link {
+.entrar-page-link{
   color: #28a745; /* Verde */
   text-decoration: none;
 }
@@ -241,5 +218,4 @@ body {
     padding: 20px;
   }
 }
-
 </style>
