@@ -5,7 +5,7 @@
         </div>
 
         <div class="post-conteudo">
-            <div class="post-title">Título</div>
+            <div class="post-title">{{ title }}</div>
 
             <div class="post-description">{{ description }}</div>
             <div class="post-link">
