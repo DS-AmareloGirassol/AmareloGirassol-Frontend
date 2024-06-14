@@ -93,7 +93,7 @@ export default defineComponent({
 <style>
 .disciplina-descricao-page {
     margin-top: 20px;
-    margin-left: 10%;
+    padding: 0px 100px;
     line-height: 2.5;
 }
 
