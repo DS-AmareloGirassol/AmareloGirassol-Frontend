@@ -45,8 +45,7 @@
                 </div>
             </div>
         </div>
-
-        <div class="div-disciplina-botoes">
+        <!-- <div class="div-disciplina-botoes"> -->
             <div class="disciplina-botoes">
                 <div class="botao-avaliar">
                     Avaliar Disciplina
@@ -56,7 +55,7 @@
                     Voltar
                 </div>
             </div>
-        </div>
+        <!-- </div> -->
     </section>
 </template>
 
@@ -86,9 +85,9 @@ export default defineComponent({
                 suporte: 4,
                 recomendacao: 2
             }
-        }
+        };
     }
-})
+});
 </script>
 
 <style>
@@ -98,14 +97,17 @@ export default defineComponent({
     line-height: 2.5;
 }
 
-.disciplina-descricao-page-title {
+.disciplina-descricao-page-title {/*title*/
     margin-bottom: 50px;
+    margin-left: 30px;
+    margin-right: 70px;
     font-weight: bold;
     font-size: 28px;
     display: flex;
     justify-content: center; /* Centraliza horizontalmente */
     align-items: center; /* Centraliza verticalmente */
-    color:#067133
+    color:#067133;
+    text-align: center;
 
 }
 
@@ -125,48 +127,51 @@ export default defineComponent({
 
 .div-disciplina-avaliacao {
     flex: 1;
-    
+
 }
 
-.div-disciplina-botoes {
+/* .div-disciplina-botoes {
     margin-top: 50px;
     display: flex;
     align-items: center;
-}
+} */
 
 .disciplina-botoes {
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px ;
 }
 
-.botao-avaliar {
+.botao-avaliar, .botao-voltar{
     padding: 5px 0;
     width: 200px;
     margin-right: 20px;
     color: #ffffff;
-    background-color: #067133;
     border-radius: 10px;
     text-align: center;
     cursor: pointer;
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /*Centraliza horizontalmente */
+    align-items: center; /*Centraliza verticalmente */
     height: 25px;
 }
 
-.botao-voltar {
-    padding: 5px 0;
-    width: 200px;
-    /* text-align: center; */
-    color: #ffffff;
+.botao-avaliar {
+    background-color: #067133;
+}
+
+.botao-voltar{
     background-color: #2710B9;
-    border-radius: 10px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    height: 25px;
+}
+
+/* Adicionando efeito de hover que vai mudar a cor ao passar o mouse */
+.botao-avaliar:hover {
+    background-color: #045d29; /* Cor ao passar o mouse */
+}
+
+.botao-voltar:hover {
+    background-color: #1a0a85; /* Cor ao passar o mouse */
 }
 
 .avaliacao{
@@ -191,4 +196,6 @@ export default defineComponent({
 .star-icon:hover ~ .star-icon::before{
     content: "\2606";
 }
+
+
 </style>
