@@ -211,4 +211,20 @@ body {
     padding: 20px;
   }
 }
+/* Responsividade */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left-panel, .right-panel {
+    flex: none;
+    width: 100%;
+    height: auto;
+  }
+
+  .right-panel {
+    padding: 20px;
+  }
+}
 </style>
