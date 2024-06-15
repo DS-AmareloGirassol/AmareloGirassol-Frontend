@@ -1,5 +1,5 @@
-<template> <!--HTML-->
-    <section class="post-component">
+<template>
+    <div class="post-component">
         <div class="post-div-imagem">
             <img src="../assets/download.jpeg" class="post-imagem">
         </div>
@@ -12,7 +12,7 @@
                 <a :href="link">Link</a>
             </div>
         </div>
-    </section>
+    </div>
 </template>
 
 <script>
@@ -45,16 +45,16 @@ export default defineComponent({
 
     .post-title {
         font-size: 20px;
-        font-weight: 900;
+        font-weight: 600;
         margin-bottom: 20px;
     }
     
     .post-description {
-        font-size: 12px;
+        font-size: 16px;
     }
 
     .post-link {
-        font-size: 12px;
+        font-size: 16px;
         margin-top: 10px;
     }
 

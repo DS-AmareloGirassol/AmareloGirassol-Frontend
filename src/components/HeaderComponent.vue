@@ -4,20 +4,36 @@
 
     <nav class="header-nav">
       <ul>
-        <li class="header-nav-li">Meu Fluxo</li>
-        <li class="header-nav-li">Disciplinas</li>
-        <li class="header-nav-li">Fórum</li>
+        <li class="header-nav-li" @click="goToFluxo">Meu Fluxo</li>
+        <li class="header-nav-li" @click="goToDisciplinas">Disciplinas</li>
+        <li class="header-nav-li" @click="goToForum">Fórum</li>
       </ul>
     </nav>
 
     <div class="header-account-actions">
-      <img class="header-account-view-img" src="../assets/account.png">
+      <img class="header-account-view-img" src="../assets/account.png" @click="goToPerfil">
       <img class="header-logout-img" src="../assets/logout.png">
     </div>
   </header>
 </template>
 
 <script>
+export default {
+  methods: {
+    goToFluxo() {
+      this.$router.push({ name: 'Forum' });
+    },
+    goToDisciplinas() {
+      this.$router.push({ name: 'Forum' });
+    },
+    goToForum() {
+      this.$router.push({ name: 'Forum' });
+    },
+    goToPerfil() {
+      this.$router.push({ name: 'Perfil' });
+    },
+  }
+}
 </script>
 
 <style scoped> 

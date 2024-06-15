@@ -12,7 +12,6 @@
 
 footer {
     width: 100%;
-    position: relative;
     text-align: center;
     background-color: #12017D;
     padding: 26px 0;

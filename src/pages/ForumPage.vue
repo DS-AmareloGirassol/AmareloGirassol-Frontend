@@ -92,6 +92,7 @@ export default defineComponent({
 
 <style scoped>
 .forum-page {
+  flex: 1;
   margin: 100px 0px;
 }
 
@@ -99,6 +100,5 @@ export default defineComponent({
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 200px;
 }
 </style>
