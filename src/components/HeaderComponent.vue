@@ -10,7 +10,7 @@
       </ul>
     </nav>
 
-    <div class="header-account">
+    <div class="header-account-actions">
       <img class="header-account-view-img" src="../assets/account.png">
       <img class="header-logout-img" src="../assets/logout.png">
     </div>
@@ -51,11 +51,17 @@ ul {
 }
 
 .header-nav-li {
-  padding: 10px;
+  padding: 15px;
   font-size: 20px;
+  cursor: pointer;
 }
 
-.header-account {
+.header-nav-li:hover {
+  background-color: #009942;
+  border-radius: 10px;
+}
+
+.header-account-actions {
   height: 60px;
 }
 
@@ -66,11 +72,20 @@ ul {
   cursor: pointer;
 }
 
+.header-account-view-img:hover {
+  background-color: #009942;
+  border-radius: 10px;
+}
+
 .header-logout-img {
   height: 40px;
-  cursor: pointer;
   padding: 10px;
   cursor: pointer;
+}
+
+.header-logout-img:hover {
+  background-color: #009942;
+  border-radius: 10px;
 }
 
 </style> 

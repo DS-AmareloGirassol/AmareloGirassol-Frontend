@@ -11,15 +11,12 @@
 <style scoped>
 
 footer {
+    width: 100%;
+    position: relative;
+    text-align: center;
     background-color: #12017D;
     padding: 26px 0;
-    margin-top: 20px;
-    text-align: center;
     color:#FFFFFF;
-    position: relative;
-    width: 100%;
-    top: 57px;
-    left: 0;  
 }
 
 </style>
