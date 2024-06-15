@@ -18,6 +18,13 @@
 </template>
 
 <script>
+export default {
+  mounted() {
+    document.querySelector('.header-account-view-img').addEventListener('click', () => {
+      window.location.href = '/perfil';
+    });
+  }
+}
 </script>
 
 <style scoped> 

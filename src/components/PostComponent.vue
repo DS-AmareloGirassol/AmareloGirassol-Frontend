@@ -45,16 +45,16 @@ export default defineComponent({
 
     .post-title {
         font-size: 20px;
-        font-weight: 900;
+        font-weight: 600;
         margin-bottom: 20px;
     }
     
     .post-description {
-        font-size: 12px;
+        font-size: 16px;
     }
 
     .post-link {
-        font-size: 12px;
+        font-size: 16px;
         margin-top: 10px;
     }
 
