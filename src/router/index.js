@@ -28,6 +28,11 @@ const router = createRouter({
       name: 'Recuperar',
       component: () => import('../pages/LoginRecuperar.vue')
     },
+    {
+      path: '/perfil',
+      name: 'Perfil',
+      component: () => import('../pages/PerfilPage.vue')
+    }
   ]
 })
 
