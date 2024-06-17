@@ -9,10 +9,10 @@
       <h3 class="form-title">Acesse sua Conta</h3>
       <form class="login-form" @submit.prevent="submitForm">
         <label for="email">E-mail</label>
-        <input type="email" id="email" name="email" placeholder="Email" class="form-element">
+        <input type="email" v-model="email" id="email" name="email" placeholder="Email" class="form-element">
         
         <label for="password">Senha</label>
-        <input type="password" id="password" name="password" placeholder="Senha" class="form-element">
+        <input type="password" v-model="password" id="password" name="password" placeholder="Senha" class="form-element">
         
         <router-link to="/recuperar" class="forgot-password">Esqueci minha senha</router-link>
         
@@ -30,8 +30,32 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
-  name: 'LoginComponent'
+  name: 'LoginComponent',
+
+  data() {
+    return {
+      email: '',
+      password: '',
+      error: ''
+    };
+  },
+  methods: {
+    async submitForm() {
+      try {
+        const response = await axios.post('http://localhost:8000/api/token/', {
+          username: this.email,
+          password: this.password
+        });
+        localStorage.setItem('token', response.data.token);
+        this.$router.push({ name: 'Forum' });
+      } catch (err) {
+        this.error = 'Invalid credentials';
+      }
+    }
+  }
 };
 </script>
 
