@@ -50,6 +50,10 @@ export default {
           password: this.password
         });
         localStorage.setItem('token', response.data.token);
+        localStorage.setItem('user_id', response.data.user.id);
+        localStorage.setItem('user_name', response.data.user.name);
+        localStorage.setItem('user_email', response.data.user.email);
+
         this.$router.push({ name: 'Forum' });
       } catch (err) {
         this.error = 'Invalid credentials';
@@ -204,7 +208,7 @@ body {
 }
 
 .cadastro-page a {
-  color: #28a745;
+  color: #7cfc70;
   text-decoration: none;
 }
 

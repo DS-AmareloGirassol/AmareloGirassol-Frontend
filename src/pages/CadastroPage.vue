@@ -204,7 +204,7 @@ body {
 }
 
 .Login-page a {
-  color: #28a745;
+  color: #7cfc70;
   text-decoration: none;
 }
 
