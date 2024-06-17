@@ -12,7 +12,7 @@
 
     <div class="header-account-actions">
       <img class="header-account-view-img" src="../assets/account.png" @click="goToPerfil">
-      <img class="header-logout-img" src="../assets/logout.png">
+      <img class="header-logout-img" src="../assets/logout.png" @click="logoutAccount">
     </div>
   </header>
 </template>
@@ -32,7 +32,11 @@ export default {
     goToPerfil() {
       this.$router.push({ name: 'Perfil' });
     },
-  }
+    async logoutAccount() {
+      localStorage.removeItem('token');
+      this.$router.push({ name: 'Login' });
+    }
+  },
 }
 </script>
 
