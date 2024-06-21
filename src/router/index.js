@@ -32,7 +32,12 @@ const router = createRouter({
       path: '/perfil',
       name: 'Perfil',
       component: () => import('../pages/PerfilPage.vue')
-    }
+    },
+    {
+      path: '/professor',
+      name: 'Professor',
+      component: () => import('../pages/ProfessorPage.vue')
+    },
   ]
 })
 
