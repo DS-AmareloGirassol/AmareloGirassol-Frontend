@@ -1,6 +1,6 @@
 <template> 
   <header>
-    <h1 class="header-logo"><\UnbConnect></h1>
+    <h1 class="header-logo"><\UnBConnect></h1>
 
     <nav class="header-nav">
       <ul>

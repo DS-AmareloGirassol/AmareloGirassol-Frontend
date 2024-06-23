@@ -278,7 +278,7 @@ header {
 
 .star-rating {
   font-size: 24px;
-  color: #ffc107; /* Cor amarela para estrelas */
+  color: #cec9bb;/* Cor amarela para estrelas */
 }
 
 .star-rating .star {
