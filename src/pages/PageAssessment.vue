@@ -79,19 +79,16 @@ export default {
     return {
       disciplinas: [
         {
-          code: 'XXXX',
           name: 'Nome da disciplina 1',
           professor: 'Nome do professor 1',
           rating: 5
         },
         {
-          code: 'XXXX',
           name: 'Nome da disciplina 2',
           professor: 'Nome do professor 2',
           rating: 4
         },
         {
-          code: 'XXXX',
           name: 'Nome da disciplina 3',
           professor: 'Nome do professor 3',
           rating: 3
