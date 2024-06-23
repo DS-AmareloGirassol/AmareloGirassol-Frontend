@@ -106,7 +106,7 @@ export default {
 <style scoped>
 header {
     background-color: #ffffff;
-    padding: 10px 50px;
+    padding: 2px 50px;
     color: #0b0fdb;
     bottom: 0;
     left: 0;
@@ -278,7 +278,7 @@ header {
 
 .star-rating {
   font-size: 24px;
-  color: #cec9bb;/* Cor amarela para estrelas */
+  color: #a1a09b; /* Cor amarela para estrelas */
 }
 
 .star-rating .star {
@@ -296,7 +296,7 @@ footer {
     width: 100%;
     text-align: center;
     background-color: #12017D;
-    padding: 26px 0;
+    padding: 8px 0;
     color:#FFFFFF;
 }
 
