@@ -34,7 +34,7 @@ export default defineComponent({
         display: flex;
         width: 800px;
         padding: 20px;
-        background-color: #B6D9B2;
+        background-color: rgba(211, 211, 211, 0.7);
         border-radius: 10px;
         margin-bottom: 50px;
     }
@@ -47,14 +47,15 @@ export default defineComponent({
         font-size: 20px;
         font-weight: 900;
         margin-bottom: 20px;
+        color: rgba(0, 0, 0, 0.7);
     }
     
     .post-description {
-        font-size: 12px;
+        font-size: 18px;
     }
 
     .post-link {
-        font-size: 12px;
+        font-size: 15px;
         margin-top: 10px;
     }
 
