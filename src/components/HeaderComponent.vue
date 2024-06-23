@@ -11,14 +11,27 @@
     </nav>
 
     <div class="header-account-actions">
-      <img class="header-account-view-img" src="../assets/account.png" @click="goToPerfil">
-      <img class="header-logout-img" src="../assets/logout.png">
+      <div class="header-account-view">
+        <span class="header-account-view-span">{{ user_name }}</span>
+        <img class="header-account-view-img" src="../assets/account.png" @click="goToPerfil">
+      </div>
+      <div class="header-logout">
+        <img class="header-logout-img" src="../assets/logout.png" @click="logoutAccount">
+      </div>
     </div>
   </header>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      user_name: null
+    };
+  },
+  mounted() {
+    this.user_name = localStorage.getItem('user_name')
+  },
   methods: {
     goToFluxo() {
       this.$router.push({ name: 'Forum' });
@@ -32,7 +45,15 @@ export default {
     goToPerfil() {
       this.$router.push({ name: 'Perfil' });
     },
-  }
+    async logoutAccount() {
+      localStorage.removeItem('token');
+      localStorage.removeItem('user_id');
+      localStorage.removeItem('user_name');
+      localStorage.removeItem('user_email');
+
+      this.$router.push({ name: 'Login' });
+    }
+  },
 }
 </script>
 
@@ -69,6 +90,7 @@ ul {
 .header-nav-li {
   padding: 15px;
   font-size: 20px;
+  font-weight: 500;
   cursor: pointer;
 }
 
@@ -78,12 +100,24 @@ ul {
 }
 
 .header-account-actions {
-  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.header-account-view {
+  display: flex;
+  margin-right: 30px;
+}
+
+.header-account-view-span {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  font-size: 16px;
 }
 
 .header-account-view-img {
   height: 40px;
-  margin-right: 30px;
   padding: 10px;
   cursor: pointer;
 }
@@ -91,6 +125,10 @@ ul {
 .header-account-view-img:hover {
   background-color: #009942;
   border-radius: 10px;
+}
+
+.header-logout {
+  display: flex;
 }
 
 .header-logout-img {

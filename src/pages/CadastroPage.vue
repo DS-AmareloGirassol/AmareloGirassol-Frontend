@@ -9,7 +9,7 @@
       <h3 class="form-title">Registre-se</h3>
       <form class="cadastro-form" @submit.prevent="submitForm">
         <label for="nomecompleto">Nome completo</label>
-        <input type="text" id="nomecompleto" v-model="form.nomecompleto" placeholder="Nome completo" class="form-element">
+        <input type="text" id="nomecompleto" v-model="form.nomeCompleto" placeholder="Nome completo" class="form-element">
 
         <label for="email">E-mail</label>
         <input type="email" id="email" v-model="form.email" placeholder="Seu e-mail" class="form-element">
@@ -18,7 +18,7 @@
         <input type="password" id="password" v-model="form.password" placeholder="Digite sua senha" class="form-element">
 
         <label for="confirm_password">Confirme sua senha</label>
-        <input type="password" id="confirm_password" v-model="form.confirm_password" placeholder="Confirme sua senha" class="form-element">
+        <input type="password" id="confirm_password" v-model="form.confirmPassword" placeholder="Confirme sua senha" class="form-element">
 
         <label for="semestre">Selecione o Semestre</label>
         <select id="semestre" v-model="form.semestre" class="form-element">
@@ -39,27 +39,41 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'RegisterForm',
   data() {
     return {
       form: {
-        nomecompleto: '',
+        nomeCompleto: '',
         email: '',
         password: '',
-        confirm_password: '',
+        confirmPassword: '',
         semestre: ''
       },
       semestres: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     };
   },
   methods: {
-    submitForm() {
-      if (this.form.password !== this.form.confirm_password) {
+    async submitForm() {
+      if (this.form.password !== this.form.confirmPassword) {
         alert("As senhas não coincidem!");
         return;
       }
       console.log("Formulário enviado:", this.form);
+      try {
+        const response = await axios.post('http://localhost:8000/api/users/', {
+          name: this.form.nomeCompleto,
+          email: this.form.email,
+          password: this.form.password
+        });
+        
+        alert("Login feito com sucesso!");
+        this.$router.push({ name: 'Login' });
+      } catch (err) {
+        this.error = 'Invalid credentials';
+      }
     }
   }
 }
@@ -204,7 +218,7 @@ body {
 }
 
 .Login-page a {
-  color: #28a745;
+  color: #7cfc70;
   text-decoration: none;
 }
 

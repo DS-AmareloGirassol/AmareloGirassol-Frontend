@@ -6,7 +6,8 @@ const router = createRouter({
     {
       path: '/forum',
       name: 'Forum',
-      component: () => import('../pages/ForumPage.vue')
+      component: () => import('../pages/ForumPage.vue'),
+      meta: { requiresAuth: true }
     },
     {
       path: '/login',
@@ -19,9 +20,10 @@ const router = createRouter({
       component: () => import('../pages/CadastroPage.vue')
     },
     {
-      path: '/assessment',
-      name: 'Assessment',
-      component: () => import('../pages/PageAssessment.vue')
+      path: '/avaliacao',
+      name: 'Avaliacao',
+      component: () => import('../pages/PageAssessment.vue'),
+      meta: { requiresAuth: true }
     },
     {
       path: '/recuperar',
@@ -31,14 +33,32 @@ const router = createRouter({
     {
       path: '/perfil',
       name: 'Perfil',
-      component: () => import('../pages/PerfilPage.vue')
+      component: () => import('../pages/PerfilPage.vue'),
+      meta: { requiresAuth: true }
     },
     {
       path: '/professor',
       name: 'Professor',
-      component: () => import('../pages/ProfessorPage.vue')
+      component: () => import('../pages/ProfessorPage.vue'),
+      meta: { requiresAuth: true }
     },
+    {
+      path: '/fluxo',
+      name: 'Fluxo',
+      component: () => import('../pages/PerfilPage.vue'),
+      meta: { requiresAuth: true }
+    }
   ]
 })
 
-export default router
+router.beforeEach((to, from, next) => {
+  const loggedIn = localStorage.getItem('token');
+
+  if (to.matched.some(record => record.meta.requiresAuth) && !loggedIn) {
+    next({ name: 'Login' });
+  } else {
+    next();
+  }
+});
+
+export default router;
