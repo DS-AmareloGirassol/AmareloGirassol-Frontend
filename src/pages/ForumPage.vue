@@ -5,13 +5,16 @@
       
       <div class="forum-page">
         <div class="div-list-posts">
-          <div v-for="postagem in postagens" :key="postagem.id">
+          <div v-for="postagem in postagensLista" :key="postagem.id">
             <PostComponent 
               :title="postagem.title" 
               :description="postagem.description" 
               :link="postagem.link" 
               :imgSrc="postagem.imgSrc"/>
           </div>
+
+        <span v-if="postagensLista.length == 0 && !error">Não existe Postagens no momento.</span>
+        <span v-if="error">Erro ao listar as Postagens, tente novamente mais tarde.</span>
         </div>
       </div>
 
@@ -20,14 +23,23 @@
 </template>
 
 <script>
+import axios from 'axios';
 import { ref, defineComponent } from 'vue';
 import PostComponent from '../components/PostComponent.vue';
 import HeaderComponent from '../components/HeaderComponent.vue';
 import FooterComponet from '../components/FooterComponent.vue';
 
 export default defineComponent({
+  components: {
+    PostComponent,
+    HeaderComponent,
+    FooterComponet
+  },
+
   data() {
     return {
+      error: null,
+      postagensLista: [],
       postagens: [
         {
           id: '2',
@@ -81,11 +93,23 @@ export default defineComponent({
     };
   },
 
-  components: {
-    PostComponent,
-    HeaderComponent,
-    FooterComponet
-  }
+  async mounted () {
+    await this.getPostList()
+  },
+
+  methods: {
+    async getPostList() {
+      try {
+        const token = localStorage.getItem('token')
+        const response = await axios.get('http://localhost:8000/api/post/', { headers: { authorization:`Token ${token}` } });
+
+        this.postagensLista = response.data
+
+      } catch (err) {
+        this.error = 'erro'
+      }
+    }
+  },
 });
 
 </script>
