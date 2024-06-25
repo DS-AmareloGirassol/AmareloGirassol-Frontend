@@ -1,26 +1,25 @@
 <template> 
-<header>
-  <h1 class="header-logo"><\UnbConnect></h1>
+    <header>
+      <h1 class="header-logo"><\UnbConnect></h1>
   
-  <nav class="header-nav">
-    <ul>
-      <li class="header-nav-li" @click="goToFluxo">Meu Fluxo</li>
-      <li class="header-nav-li" @click="goToDisciplinas">Disciplinas</li>
-      <li class="header-nav-li" @click="goToForum">Fórum</li>
-    </ul>
-  </nav>
-
-  <div class="header-account-actions">
-    <div class="header-account-view">
-      <span class="header-account-view-span">{{ user_name }}</span>
-      <img class="header-account-view-img" src="../assets/account.png" @click="goToPerfil">
-    </div>
-    <div class="header-logout">
-      <img class="header-logout-img" src="../assets/logout.png" @click="logoutAccount">
-    </div>
-  </div>
+      <nav class="header-nav">
+        <ul>
+          <li class="header-nav-li" @click="goToFluxo">Meu Fluxo</li>
+          <li class="header-nav-li" @click="goToDisciplinas">Disciplinas</li>
+          <li class="header-nav-li" @click="goToForum">Fórum</li>
+        </ul>
+      </nav>
+  
+      <div class="header-account-actions">
+        <div class="header-account-view">
+          <span class="header-account-view-span">{{ user_name }}</span>
+          <img class="header-account-view-img" src="../assets/account.png" @click="goToPerfil">
+        </div>
+        <div class="header-logout">
+          <img class="header-logout-img" src="../assets/logout.png" @click="logoutAccount">
+        </div>
+      </div>
     </header>
-    
 </template>
 
 <script>
