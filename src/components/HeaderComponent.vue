@@ -1,6 +1,8 @@
 <template> 
     <header>
-      <h1 class="header-logo"><\UnbConnect></h1>
+      <h1 class="titulo">
+        <span class="text-unb" > <\UnB</span><span class= "text-Connect" >Connect></span>
+      </h1> 
   
       <nav class="header-nav">
         <ul>
@@ -29,13 +31,32 @@
 header {
     background-color: #F0F0F0;
     padding: 10px 50px;
-    color: #0b0fdb;
+    color: #091f77;
     bottom: 0;
     left: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
+
+.text-unb{
+  color:#091f77;;
+  font-size: 36px;
+}
+
+.header-account-view-img:hover{
+  background-color:#031664;
+}
+
+.header-logout-img:hover{
+  background-color:#024d22;
+
+}
+.text-Connect{
+  color:#009942;
+  font-size: 36px;
+}
+
   
   /* .header-logo{
   }

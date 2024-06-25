@@ -38,7 +38,7 @@ export default defineComponent({
         {
           id: '3',
           title: '1.24 PIBIC e PIBEX @UnBConnect',
-          description: 'Grupo Grupo para informes sobre PIBIC E PIBEGrupo para informes sobre PIBIC E PIBEGrupo para informes sobre PIBIC E PIBEGrupo para informes sobre PIBIC E PIBEGrupo para informes sobre PIBIC E PIBEGrupo para informes sobre PIBIC E PIBEGrupo para informes sobre PIBIC E PIBEGrupo para informes sobre PIBIC E PIBEGrupo para informes sobre PIBIC E PIBEGrupo para informes sobre PIBIC E PIBEGrupo para informes sobre PIBIC E PIBEGrupo para informes sobre PIBIC E PIBEGrupo para informes sobre PIBIC E PIBEpara informes sobre PIBIC E PIBEX',
+          description: 'Grupo Grupo para informes sobre PIBIC E PIBEX',
           link: 'bbbbbbbbb'
         },
         {

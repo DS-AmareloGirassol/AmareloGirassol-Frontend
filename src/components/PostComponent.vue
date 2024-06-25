@@ -44,18 +44,18 @@ export default defineComponent({
     }
 
     .post-title {
-        font-size: 20px;
+        font-size: 30px;
         font-weight: 900;
         margin-bottom: 20px;
         color: rgba(0, 0, 0, 0.7);
     }
     
     .post-description {
-        font-size: 12px;
+        font-size: 18px;
     }
 
     .post-link {
-        font-size: 12px;
+        font-size: 16px;
         margin-top: 10px;
     }
 
