@@ -1,0 +1,83 @@
+<template> 
+    <div class="post-component">
+        <h2 class="matéria">Matéria</h2>
+
+        <div class="codigo">Código: {{ codigo }}</div>
+        <div class="semestre">Código: {{ semestre }}</div>
+
+
+    <div class="post">
+
+    </div>
+
+    </div>
+</template>
+
+
+<script>import { defineComponent } from 'vue';
+
+export default defineComponent({
+    props: {
+        id: String,
+        title: String,
+        description: String,
+        link: String,
+        imgSrc: String
+    },
+});
+</script>
+
+
+
+
+<style scoped> /*CSS*/
+    .post-component {
+        margin-left: 235px;
+        margin-right: 235px;
+        background-color: #B6D9B2;
+        border-radius: 10px;
+    }
+    
+    .description {
+        display: flex;
+        position: relative;
+        margin-left: 300px;
+    }
+
+    .link {
+        display: flex;
+        position: relative;
+        margin-left: 300px;
+        padding: 0 1px 10px;
+    }
+
+    .title {
+        display: flex;
+        position: relative;
+        margin-left: 290px;
+        padding: 10px;
+    }
+
+
+    .post img {
+    width: 108px;
+    height: 79px;
+    top: 28px;
+    right: 100px;
+    left: 100px;
+    opacity: 0px;
+    }
+    
+    .icone{
+    width: 40px;
+    height: 43px;
+    top: 45px;
+    left: 734px;
+    opacity: 0px;
+    }
+    
+
+</style>
+
+
+

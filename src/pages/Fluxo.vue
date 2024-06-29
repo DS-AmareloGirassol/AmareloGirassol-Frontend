@@ -11,7 +11,16 @@
 </template>
 
 <script>
+import { ref, defineComponent } from 'vue';
+import PostComponent from '../components/PostComponent.vue';
+import HeaderComponent from '../components/HeaderComponent.vue';
+import FooterComponent from '../components/FooterComponent.vue';
+
 export default {
+  components: {
+    HeaderComponent,
+    FooterComponent,
+  },
   data() {
     return {
       columns: [
@@ -63,6 +72,7 @@ export default {
     });
   },
 };
+
 </script>
 
 <style scoped>
