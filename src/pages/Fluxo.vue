@@ -12,7 +12,7 @@
 
 <script>
 import { ref, defineComponent } from 'vue';
-import PostComponent from '../components/PostComponent.vue';
+import MateriaComponent from '../components/MateriaComponent.vue';
 import HeaderComponent from '../components/HeaderComponent.vue';
 import FooterComponent from '../components/FooterComponent.vue';
 
