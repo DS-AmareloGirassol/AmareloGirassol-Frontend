@@ -4,6 +4,11 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
+      path: '/',
+      name: 'Home',
+      component: () => import('../pages/HomePage.vue'),
+    },
+    {
       path: '/forum',
       name: 'Forum',
       component: () => import('../pages/ForumPage.vue'),
@@ -13,7 +18,6 @@ const router = createRouter({
       path: '/login',
       name: 'Login',
       component: () => import('../pages/LoginPage.vue'),
-      
     },
     {
       path: '/cadastro',
