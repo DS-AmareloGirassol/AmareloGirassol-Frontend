@@ -60,13 +60,7 @@
           <p class="professor-name">{{ disciplina.professor }}</p>
         </div>
 
-        <!-- Seção de avaliação -->
-        <div class="col-auto rating-section">
-          <p class="rating-label">Indicação Geral</p>
-          <div class="star-rating">
-            <span class="star" v-for="star in disciplina.rating" :key="star">&#9733;</span>
-          </div>
-        </div>
+       
       </div>
     </div>
   </div>

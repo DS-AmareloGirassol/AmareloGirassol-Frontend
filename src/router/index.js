@@ -25,7 +25,6 @@ const router = createRouter({
       path: '/disciplina',
       name: 'Disciplina',
       component: () => import('../pages/PageDisciplina.vue'),
-      meta: { requiresAuth: true }
     },
     {
       path: '/recuperar',
