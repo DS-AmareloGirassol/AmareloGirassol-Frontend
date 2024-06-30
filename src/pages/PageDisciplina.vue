@@ -79,8 +79,8 @@ export default {
       searchQuery: '',
       disciplinas: [
         {
-          name: 'Matemática Básica',
-          professor: 'Prof. Silva',
+          name: 'Matemática Discreta 1',
+          professor: 'Prof. XXXX',
           rating: 5,
           code: 'MATH101'
         },
@@ -91,12 +91,11 @@ export default {
           code: 'PHYS102'
         },
         {
-          name: 'Química Orgânica',
-          professor: 'Prof. Pereira',
+          name: 'Desenvolvimento de Software',
+          professor: 'Prof. Sergio',
           rating: 3,
           code: 'CHEM103'
         },
-        // Adicione mais disciplinas conforme necessário
       ]
     }
   },
