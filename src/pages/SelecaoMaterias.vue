@@ -41,10 +41,20 @@
           </div>
         </div>
         <!-- Botão "Concluído" -->
-        <div class="text-center mt-4">
-          <button class="btn btn-primary" @click="goToFluxo">Concluído</button>
-        </div>
+       
       </div>
+
+      <div class="button-container">
+     <button class="click-button">
+       <span>Concluído</span>
+       <div class="plus-icon"></div>
+     </button>
+   </div>
+
+
+
+
+
       <FooterComponent />
     </div>
   </template>
@@ -248,5 +258,28 @@
     text-align: center;
     margin-bottom: 5px;
   }
-  </style>
+  .button-container {
+ display: flex;
+ justify-content: center;
+ margin: 20px;
+}
+.click-button {
+ display: flex;
+ align-items: center;
+ padding: 20px 40px;
+ border: none;
+ border-radius: 50px;
+ background-color: #ffffff;
+ box-shadow: 0 0 10px rgba(0, 0, 255, 0.2);
+ cursor: pointer;
+ transition: box-shadow 0.3s ease;
+ position: relative;
+}
+
+.plus-icon {
+ width: 24px;
+ height: 24px;
+ position: relative;
+}
+</style>
   
