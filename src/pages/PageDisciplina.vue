@@ -52,15 +52,13 @@
       >
         <!-- Seção de informações da disciplina e botão -->
         <div class="col-auto info-section">
-          <p class="code">{{ disciplina.code }}</p>
           <div class="info-header">
+            <p class="code">{{ disciplina.code }}</p>
             <h2 class="discipline-name">{{ disciplina.name }}</h2>
-            <button class="btn btn-view-evaluation">Ver avaliação Geral</button>
+            <p class="professor-name">{{ disciplina.professor }}</p>
           </div>
-          <p class="professor-name">{{ disciplina.professor }}</p>
         </div>
-
-       
+        <button class="btn btn-view-evaluation">Ver avaliação Geral</button>
       </div>
     </div>
   </div>
@@ -80,19 +78,21 @@ export default {
       disciplinas: [
         {
           name: 'Matemática Discreta 1',
-          professor: 'Prof. XXXX',
           rating: 5,
           code: 'MATH101'
         },
         {
           name: 'Física Experimental',
-          professor: 'Prof. Souza',
           rating: 4,
           code: 'PHYS102'
         },
         {
           name: 'Desenvolvimento de Software',
-          professor: 'Prof. Sergio',
+          rating: 3,
+          code: 'CHEM103'
+        },
+        {
+          name: 'Desenvolvimento de Software',
           rating: 3,
           code: 'CHEM103'
         },
@@ -265,13 +265,13 @@ ul {
   font-size: 12px;
   color: #888;
   margin-bottom: 5px;
+  margin-right: 20px;
 }
 
 .discipline-name {
   font-family: 'Arial Black', sans-serif;
   font-size: 24px;
   color: #333;
-  margin-right: 20px;
 }
 
 .professor-name {
@@ -289,6 +289,7 @@ ul {
   font-family: 'Arial', sans-serif;
   font-size: 14px;
   border-radius: 5px;
+  align-self: flex-end; /* Move the button to the right */
 }
 
 .rating-section {
