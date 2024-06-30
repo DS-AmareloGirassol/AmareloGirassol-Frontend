@@ -28,13 +28,6 @@
           class="form-control search-bar" 
           placeholder="Pesquise aqui..." 
         />
-        <select class="form-control select-period">
-        <option>Selecione o Período</option>
-        <option>2023/1</option>
-        <option>2023/2</option>
-        <option>2024/1</option>
-        <option>2023/2</option>
-        </select>
       </div>
   
       <!-- Conteúdo do site com múltiplas disciplinas -->

@@ -12,23 +12,26 @@ const router = createRouter({
     {
       path: '/login',
       name: 'Login',
-      component: () => import('../pages/LoginPage.vue')
+      component: () => import('../pages/LoginPage.vue'),
+      
     },
     {
       path: '/cadastro',
       name: 'Cadastro',
-      component: () => import('../pages/CadastroPage.vue')
+      component: () => import('../pages/CadastroPage.vue'),
+      meta: { requiresAuth: true }
     },
     {
-      path: '/avaliacao',
-      name: 'Avaliacao',
-      component: () => import('../pages/PageAssessment.vue'),
+      path: '/disciplina',
+      name: 'Disciplina',
+      component: () => import('../pages/PageDisciplina.vue'),
       meta: { requiresAuth: true }
     },
     {
       path: '/recuperar',
       name: 'Recuperar',
-      component: () => import('../pages/LoginRecuperar.vue')
+      component: () => import('../pages/LoginRecuperar.vue'),
+      meta: { requiresAuth: true }
     },
     {
       path: '/perfil',
@@ -37,10 +40,19 @@ const router = createRouter({
       meta: { requiresAuth: true }
     },
     {
+      path: '/adicionar',
+      name: '/Adicionar',
+      component: () => import('../pages/AdicionarPage.vue'),
+    },
+    {
       path: '/professor',
       name: 'Professor',
       component: () => import('../pages/ProfessorPage.vue'),
-      meta: { requiresAuth: true }
+    },
+    {
+      path: '/feedback',
+      name: 'Feedback',
+      component: () => import('../pages/FeedbackPage.vue'),
     },
     {
       path: '/fluxo',
