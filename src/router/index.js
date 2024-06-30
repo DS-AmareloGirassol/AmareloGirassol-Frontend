@@ -29,7 +29,7 @@ const router = createRouter({
       component: () => import('../pages/Fluxo.vue')
     },
     {
-      path: '/selecaomaterias',
+      path: '/selecao',
       name: 'Seleção',
       component: () => import('../pages/SelecaoMaterias.vue')
     }
