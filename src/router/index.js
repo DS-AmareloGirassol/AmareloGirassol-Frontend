@@ -6,17 +6,58 @@ const router = createRouter({
     {
       path: '/forum',
       name: 'Forum',
-      component: () => import('../pages/ForumPage.vue')
+      component: () => import('../pages/ForumPage.vue'),
+      meta: { requiresAuth: true }
     },
     {
       path: '/login',
       name: 'Login',
-      component: () => import('../pages/LoginPage.vue')
+      component: () => import('../pages/LoginPage.vue'),
+      
     },
     {
       path: '/cadastro',
       name: 'Cadastro',
-      component: () => import('../pages/CadastroPage.vue')
+      component: () => import('../pages/CadastroPage.vue'),
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/disciplina',
+      name: 'Disciplina',
+      component: () => import('../pages/PageDisciplina.vue'),
+    },
+    {
+      path: '/recuperar',
+      name: 'Recuperar',
+      component: () => import('../pages/LoginRecuperar.vue'),
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/perfil',
+      name: 'Perfil',
+      component: () => import('../pages/PerfilPage.vue'),
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/adicionar',
+      name: '/Adicionar',
+      component: () => import('../pages/AdicionarPage.vue'),
+    },
+    {
+      path: '/professor',
+      name: 'Professor',
+      component: () => import('../pages/ProfessorPage.vue'),
+    },
+    {
+      path: '/feedback',
+      name: 'Feedback',
+      component: () => import('../pages/FeedbackPage.vue'),
+    },
+    {
+      path: '/fluxo',
+      name: 'Fluxo',
+      component: () => import('../pages/Fluxo.vue'),
+      meta: { requiresAuth: true }
     },
     {
       path: '/disciplina',
@@ -36,4 +77,14 @@ const router = createRouter({
   ]
 })
 
-export default router
+router.beforeEach((to, from, next) => {
+  const loggedIn = localStorage.getItem('token');
+
+  if (to.matched.some(record => record.meta.requiresAuth) && !loggedIn) {
+    next({ name: 'Login' });
+  } else {
+    next();
+  }
+});
+
+export default router;
