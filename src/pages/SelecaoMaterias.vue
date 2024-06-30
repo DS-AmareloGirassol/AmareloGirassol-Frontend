@@ -41,18 +41,16 @@
           </div>
         </div>
         <!-- Botão "Concluído" -->
-       
-      </div>
-
-      <div class="button-container">
+        <div class="button-container">
      <button class="click-button">
        <span>Concluído</span>
        <div class="plus-icon"></div>
      </button>
    </div>
+       
+      </div>
 
-
-
+     
 
 
       <FooterComponent />
@@ -258,11 +256,13 @@
     text-align: center;
     margin-bottom: 5px;
   }
+
   .button-container {
  display: flex;
  justify-content: center;
  margin: 20px;
 }
+
 .click-button {
  display: flex;
  align-items: center;
