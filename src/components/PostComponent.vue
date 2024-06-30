@@ -55,7 +55,7 @@ export default defineComponent({
     }
 
     .post-link {
-        font-size: 16px;
+        font-size: 15px;
         margin-top: 10px;
     }
 

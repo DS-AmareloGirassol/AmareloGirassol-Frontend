@@ -63,7 +63,7 @@ export default defineComponent({
         {
           id: '4',
           title: 'Cardápio RU',
-          description: 'Cardápio de Manhã, Tarde e Noite do Restaurante Universitário',
+          description: 'Cardápio de Manhã, Tarde e Noite do Restaurante Universitário.',
           link: 'cccccccccc'
         },
         {
