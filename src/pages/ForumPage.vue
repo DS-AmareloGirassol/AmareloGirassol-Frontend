@@ -12,11 +12,10 @@
               :imgSrc="postagem.imgSrc"/>
           </div>
 
-        <span v-if="postagensLista.length == 0 && !error">Não existe Postagens no momento.</span>
-        <span v-if="error">Erro ao listar as Postagens, tente novamente mais tarde.</span>
+          <span v-if="postagensLista.length == 0 && !error">Não existe Postagens no momento.</span>
+          <span v-if="error">Erro ao listar as Postagens, tente novamente mais tarde.</span>
         </div>
       </div>
-    </div>
 
     <div class="button-container">
       <button class="click-button">
