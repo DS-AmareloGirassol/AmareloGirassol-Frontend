@@ -16,7 +16,7 @@
           <span v-if="error">Erro ao listar as Postagens, tente novamente mais tarde.</span>
         </div>
       </div>
-
+    
     <div class="button-container">
       <button class="click-button">
         <span>Nova Postagem</span>

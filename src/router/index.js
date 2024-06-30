@@ -60,13 +60,23 @@ const router = createRouter({
     {
       path: '/fluxo',
       name: 'Fluxo',
-      component: () => import('../pages/PerfilPage.vue'),
+      component: () => import('../pages/Fluxo.vue'),
       meta: { requiresAuth: true }
     },
     {
       path: '/disciplina',
       name: 'Detalhe Disciplina',
       component: () => import('../pages/DetalheDisciplinaPage.vue')
+    },
+    {
+      path: '/fluxo',
+      name: 'Meu Fluxo',
+      component: () => import('../pages/Fluxo.vue')
+    },
+    {
+      path: '/selecao',
+      name: 'Seleção',
+      component: () => import('../pages/SelecaoMaterias.vue')
     }
   ]
 })
