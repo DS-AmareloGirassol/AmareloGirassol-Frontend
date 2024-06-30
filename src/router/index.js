@@ -47,8 +47,7 @@ const router = createRouter({
       name: 'Fluxo',
       component: () => import('../pages/PerfilPage.vue'),
       meta: { requiresAuth: true }
-    }
-
+    },
     {
       path: '/disciplina',
       name: 'Detalhe Disciplina',
