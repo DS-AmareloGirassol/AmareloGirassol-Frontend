@@ -27,23 +27,39 @@
       <img src="/src/assets/unb-logo.png" alt="Logo UnB" class="unb-logo">
     </div>
   </div>
+
+  <SuccessMessageModal
+    v-if="isModalVisible"
+    :show="isModalVisible"
+    message="Login efetuado com sucesso!!"
+    @close="isModalVisible = false"
+  />
 </template>
 
 <script>
 import axios from 'axios';
-
+import SuccessMessageModal from '../components/SuccessMessageModal.vue';
 
 export default {
   name: 'LoginComponent',
 
+  components: {
+    SuccessMessageModal
+  },
+
   data() {
     return {
+      isModalVisible: false,
       email: '',
       password: '',
       error: ''
     };
   },
   methods: {
+    sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    },
+
     async submitForm() {
       try {
         const response = await axios.post('http://localhost:8000/api/token/', {
@@ -54,6 +70,9 @@ export default {
         localStorage.setItem('user_id', response.data.user.id);
         localStorage.setItem('user_name', response.data.user.name);
         localStorage.setItem('user_email', response.data.user.email);
+
+        this.isModalVisible = true
+        await this.sleep(2000);
 
         this.$router.push({ name: 'Meu Fluxo' });
       } catch (err) {

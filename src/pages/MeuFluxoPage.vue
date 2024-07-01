@@ -81,7 +81,7 @@ export default {
         const user_id = localStorage.getItem('user_id')
         const token = localStorage.getItem('token')
 
-        const response = await axios.get('http://localhost:8000/api/users/1/subjects/', { headers: { authorization:`Token ${token}` } });
+        const response = await axios.get(`http://localhost:8000/api/users/${user_id}/subjects/`, { headers: { authorization:`Token ${token}` } });
 
         this.subjectsList = response.data
 
@@ -95,7 +95,7 @@ export default {
         const user_id = localStorage.getItem('user_id')
         const token = localStorage.getItem('token')
 
-        const response = await axios.get('http://localhost:8000/api/users/1/', { headers: { authorization:`Token ${token}` } });
+        const response = await axios.get(`http://localhost:8000/api/users/${user_id}/`, { headers: { authorization:`Token ${token}` } });
 
         this.semester_being_attended = response.data.semester_being_attended
         this.current_fluxo_position = response.data.current_fluxo_position

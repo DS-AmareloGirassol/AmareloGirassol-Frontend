@@ -20,11 +20,11 @@
         <label for="confirm_password">Confirme sua senha</label>
         <input type="password" id="confirm_password" v-model="form.confirmPassword" placeholder="Confirme sua senha" class="form-element">
 
-        <label for="semestre">Selecione o Semestre</label>
+        <!-- <label for="semestre">Selecione o Semestre</label>
         <select id="semestre" v-model="form.semestre" class="form-element">
           <option value="" disabled>Selecione um semestre</option>
           <option v-for="semestre in semestres" :key="semestre" :value="semestre">{{ semestre }}º Semestre</option>
-        </select>
+        </select> -->
 
 
         <button type="submit" class="btn-cadastrar form-element">Cadastrar</button>
@@ -36,15 +36,29 @@
       </form>
     </div>
   </div>
+
+  <SuccessMessageModal
+      v-if="isModalVisible"
+      :show="isModalVisible"
+      message="Cadastro efetuado com sucesso!!"
+      @close="isModalVisible = false"
+    />
 </template>
 
 <script>
 import axios from 'axios';
+import SuccessMessageModal from '../components/SuccessMessageModal.vue';
 
 export default {
   name: 'RegisterForm',
+
+  components: {
+    SuccessMessageModal
+  },
+
   data() {
     return {
+      isModalVisible: false,
       form: {
         nomeCompleto: '',
         email: '',
@@ -56,6 +70,10 @@ export default {
     };
   },
   methods: {
+    sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    },
+
     async submitForm() {
       if (this.form.password !== this.form.confirmPassword) {
         alert("As senhas não coincidem!");
@@ -63,13 +81,15 @@ export default {
       }
       console.log("Formulário enviado:", this.form);
       try {
-        const response = await axios.post('http://localhost:8000/api/users/', {
+        await axios.post('http://localhost:8000/api/users/', {
           name: this.form.nomeCompleto,
           email: this.form.email,
           password: this.form.password
         });
+
+        this.isModalVisible = true
+        await this.sleep(2000);
         
-        alert("Login feito com sucesso!");
         this.$router.push({ name: 'Login' });
       } catch (err) {
         this.error = 'Invalid credentials';

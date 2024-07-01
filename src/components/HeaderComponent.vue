@@ -123,7 +123,7 @@ header {
   }
   
   .header-nav-li:hover {
-    background-color: #d7d7d8;
+    background-color: #e0e0e0;
     border-radius: 10px;
   }
   

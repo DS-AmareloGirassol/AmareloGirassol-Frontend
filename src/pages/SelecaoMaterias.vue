@@ -51,6 +51,14 @@
         </div>
        
       </div>
+
+      <SuccessMessageModal
+        v-if="isModalVisible"
+        :show="isModalVisible"
+        message="Disciplinas foram salvas com sucesso!!"
+        @close="isModalVisible = false"
+      />
+
       <FooterComponent />
     </div>
   </template>
@@ -60,15 +68,18 @@
   import { ref, defineComponent } from 'vue';
   import HeaderComponent from '../components/HeaderComponent.vue';
   import FooterComponent from '../components/FooterComponent.vue';
+  import SuccessMessageModal from '../components/SuccessMessageModal.vue';
   
   export default defineComponent({
     components: {
       HeaderComponent,
       FooterComponent,
+      SuccessMessageModal
     },
     name: 'Disciplinas',
     data() {
       return {
+        isModalVisible: false,
         user_name: 'Nome do Usuário', // Adicione o nome do usuário aqui
         disciplinas: [
           {
@@ -103,6 +114,9 @@
     },
 
     methods: {
+      sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      },
       goToFluxo() {
         this.$router.push({ name: 'Meu Fluxo' });
       },
@@ -124,8 +138,10 @@
           const user_id = localStorage.getItem('user_id')
           const token = localStorage.getItem('token')
 
-          const response = await axios.post(`http://localhost:8000/api/users/${user_id}/add-subject/`, this.selectList, { headers: { authorization:`Token ${token}` } });
-          
+          await axios.post(`http://localhost:8000/api/users/${user_id}/add-subject/`, this.selectList, { headers: { authorization:`Token ${token}` } });
+
+          this.isModalVisible = true
+          await this.sleep(2000);
           this.goToFluxo()
         } catch (err) {
           this.error = 'erro'

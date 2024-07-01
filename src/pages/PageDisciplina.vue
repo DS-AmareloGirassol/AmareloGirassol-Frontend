@@ -1,7 +1,7 @@
 <template>
   <HeaderComponent/>
 
-  <div class="container">
+  <div class="containerDisciplina">
     <!-- Container da barra de pesquisa e botão de pesquisa -->
     <div class="search-filter-container">
       <input 
@@ -24,7 +24,7 @@
     </div>
 
     <!-- Conteúdo do site com múltiplas disciplinas -->
-    <div class="content">
+    <div class="contentDisciplina">
       <div 
         v-for="(disciplina, index) in filteredDisciplinas" 
         :key="index" 
@@ -34,7 +34,7 @@
         <div class="col-auto info-section">
           <div class="info-header">
             <p class="code">{{ disciplina.code }}</p>
-            <h2 class="discipline-name">{{ disciplina.name }}</h2>
+            <div class="discipline-name">{{ disciplina.name }}</div>
             <p class="professor-name">{{ disciplina.professor }}</p>
           </div>
         </div>
@@ -120,11 +120,11 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.containerDisciplina {
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  padding: 30px;
   max-width: 1100px;
   margin: 20px auto;
 }
@@ -160,7 +160,7 @@ export default {
   height: 20px;
 }
 
-.content {
+.contentDisciplina {
   margin-top: 20px;
 }
 
@@ -186,8 +186,8 @@ export default {
 .code {
   font-size: 12px;
   color: #888;
-  margin-bottom: 5px;
-  margin-right: 20px;
+  min-width: 70px;
+  margin-right: 10px; /* Espaçamento à direita da checkbox */
 }
 
 .discipline-name {
