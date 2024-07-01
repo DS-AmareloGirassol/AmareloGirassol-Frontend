@@ -128,20 +128,20 @@ export default defineComponent({
 <style scoped>
 .forum-page {
   flex: 1;
-  margin: 100px 0px;
+  margin-top: 100px;
 }
 
 .div-list-posts {
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 150px;
 }
 
 .button-container {
   display: flex;
   justify-content: center;
-  margin: 20px;
+  margin-top: 20px;
+  margin-bottom: 70px;
 }
 
 .click-button {

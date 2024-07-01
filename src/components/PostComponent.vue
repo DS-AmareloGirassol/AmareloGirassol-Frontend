@@ -1,9 +1,5 @@
 <template>
     <div class="post-component">
-        <div class="post-div-imagem">
-            <img src="../assets/download.jpeg" class="post-imagem">
-        </div>
-
         <div class="post-conteudo">
             <div class="post-title">{{ title }}</div>
 
@@ -69,7 +65,7 @@ export default defineComponent({
     }
 
     .post-user {
-        margin-top: 10px;
+        margin-top: 20px;
         font-size: 14px;
     }
 
