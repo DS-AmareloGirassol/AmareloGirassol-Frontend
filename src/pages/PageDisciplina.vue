@@ -13,7 +13,7 @@
       />
       <datalist id="disciplinasList">
         <option 
-          v-for="disciplina in disciplinasMock" 
+          v-for="disciplina in disciplinasList" 
           :key="disciplina.code" 
           :value="disciplina.name"
         ></option>
@@ -88,9 +88,8 @@ export default {
   },
   computed: {
     filteredDisciplinas() {
-      return this.disciplinasMock.filter(disciplina => 
+      return this.disciplinasList.filter(disciplina => 
         disciplina.name.toLowerCase().includes(this.searchQuery.toLowerCase()) || 
-        disciplina.professor.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
         disciplina.code.toLowerCase().includes(this.searchQuery.toLowerCase())
       );
     }

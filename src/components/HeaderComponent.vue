@@ -48,7 +48,7 @@ export default {
       this.$router.push({ name: 'Forum' });
     },
     goToPerfil() {
-      this.$router.push({ name: 'Perfil' });
+      this.$router.push({ name: 'Perfil', params: { user_id: localStorage.getItem('user_id') } });
     },
     async logoutAccount() {
       localStorage.removeItem('token');

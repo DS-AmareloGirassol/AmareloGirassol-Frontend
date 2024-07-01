@@ -11,6 +11,7 @@
             <div class="post-link">
                 <a :href="link">Link</a>
             </div>
+            <div class="post-user">Criado por: <span @click="goToPerfil" class="post-link-user">{{ user_name }}</span></div>
         </div>
     </div>
 </template>
@@ -24,8 +25,16 @@ export default defineComponent({
         title: String,
         description: String,
         link: String,
-        imgSrc: String
+        imgSrc: String,
+        user: String,
+        user_name: String
     },
+
+    methods: {
+        goToPerfil() {
+            this.$router.push({ name: 'Perfil', params: { user_id: this.user } });
+        },
+    }
 });
 </script>
 
@@ -34,7 +43,7 @@ export default defineComponent({
         display: flex;
         width: 800px;
         padding: 20px;
-        background-color: rgba(211, 211, 211, 0.7);
+        background-color: #e3e4e8;
         border-radius: 10px;
         margin-bottom: 50px;
     }
@@ -57,6 +66,16 @@ export default defineComponent({
     .post-link {
         font-size: 15px;
         margin-top: 10px;
+    }
+
+    .post-user {
+        margin-top: 10px;
+        font-size: 14px;
+    }
+
+    .post-link-user {
+        color: #160094;
+        cursor: pointer;
     }
 
     .post-imagem {

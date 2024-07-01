@@ -8,12 +8,10 @@
             </div>
 
             <div>
-                <div class="perfil-nome">Laryssa</div>
+                <div class="perfil-nome">{{ name }}</div>
 
                 <div class="perfil-descricao">
-                    Olá, Sou a Laryssa, estudante de Engenharia de Software na Universidade de Brasília. Estou verdadeiramente fascinada pelo mundo da tecnologia e pelas oportunidades que ela oferece para revolucionar a forma como vivemos. A cada dia, mergulho ainda mais fundo nesse universo de inovações!
-                    E a minha paixão por esse campo me impulsiona a buscar conhecimento constantemente!
-                    Atualmente, possuo habilidades em algumas linguagens de programação, incluindo C, Python, JavaScript, HTML e CSS.
+                    {{ description }}
                 </div>
             </div>
         </div>
@@ -23,6 +21,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import HeaderComponent from '../components/HeaderComponent.vue';
 import FooterComponent from '../components/FooterComponent.vue'
 export default {
@@ -30,6 +29,35 @@ export default {
     components: {
         HeaderComponent,
         FooterComponent
+    },
+
+    data() {
+        return {
+            name: null,
+            description: null,
+            semester_being_attended: null,
+        }
+    },
+
+    async mounted() {
+        await this.getInfosUser()
+    },
+
+    methods: {
+        async getInfosUser() {
+            try {
+                const user_id = this.$route.params.user_id;
+                const token = localStorage.getItem('token')
+
+                const response = await axios.get(`http://localhost:8000/api/users/${user_id}/`, { headers: { authorization:`Token ${token}` } });
+
+                this.name = response.data.name
+                this.description = response.data.description
+                this.semester_being_attended = response.data.semester_being_attended
+            } catch (err) {
+                this.error = 'erro'
+            }
+        },
     }
 }
 </script>
@@ -58,6 +86,7 @@ export default {
 }
 
 .perfil-descricao {
+    margin-top: 20px;
     font-size: 20px;
     width: 1200px;
 }

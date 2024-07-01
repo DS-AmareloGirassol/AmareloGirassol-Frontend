@@ -98,7 +98,6 @@
 
     async mounted () {
       await this.getSubjectList()
-      console.log(this.subjectsList.length)
     },
 
     methods: {

@@ -9,7 +9,9 @@
               :title="postagem.title" 
               :description="postagem.description" 
               :link="postagem.link" 
-              :imgSrc="postagem.imgSrc"/>
+              :imgSrc="postagem.imgSrc"
+              :user="postagem.user"
+              :user_name="postagem.user_name"/>
           </div>
 
           <span v-if="postagensLista.length == 0 && !error">Não existe Postagens no momento.</span>
