@@ -23,12 +23,12 @@ const router = createRouter({
       path: '/cadastro',
       name: 'Cadastro',
       component: () => import('../pages/CadastroPage.vue'),
-      meta: { requiresAuth: true }
     },
     {
       path: '/disciplinas',
       name: 'Disciplina',
       component: () => import('../pages/PageDisciplina.vue'),
+      meta: { requiresAuth: true }
     },
     {
       path: '/recuperar',
@@ -46,31 +46,31 @@ const router = createRouter({
       path: '/adicionar',
       name: 'Adicionar Post',
       component: () => import('../pages/AdicionarPage.vue'),
-    },
-    {
-      path: '/professor',
-      name: 'Professor',
-      component: () => import('../pages/ProfessorPage.vue'),
+      meta: { requiresAuth: true }
     },
     {
       path: '/feedback',
       name: 'Feedback',
       component: () => import('../pages/FeedbackPage.vue'),
+      meta: { requiresAuth: true }
     },
     {
-      path: '/disciplina',
+      path: '/detalhe-disciplina',
       name: 'Detalhe Disciplina',
-      component: () => import('../pages/DetalheDisciplinaPage.vue')
+      component: () => import('../pages/DetalheDisciplinaPage.vue'),
+      meta: { requiresAuth: true }
     },
     {
       path: '/selecao',
       name: 'Seleção',
-      component: () => import('../pages/SelecaoMaterias.vue')
+      component: () => import('../pages/SelecaoMaterias.vue'),
+      meta: { requiresAuth: true }
     },
     {
       path: '/fluxo',
       name: 'Meu Fluxo',
-      component: () => import('../pages/MeuFluxoPage.vue')
+      component: () => import('../pages/MeuFluxoPage.vue'),
+      meta: { requiresAuth: true }
     }
   ]
 })

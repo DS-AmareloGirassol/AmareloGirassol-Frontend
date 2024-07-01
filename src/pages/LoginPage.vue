@@ -1,5 +1,5 @@
 <template>
-   <div class="container">
+   <div class="containerLogin">
     <div class="left-panel">
       <h1 class="titulo">
         <span class="text-UnB">UnB</span><span class="text-Connect">Connect</span>
@@ -65,19 +65,8 @@ export default {
 </script>
 
 <style scoped>
-/* Importação das fontes */
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
 
-/* Estilos gerais */
-body {
-  font-family: 'Jost', sans-serif;
-  background-color: #EAEAEA; /* Cor de fundo do site */
-  
-}
-
-.container {
+.containerLogin {
   display: flex;
   height: 100vh;
   color: white;
