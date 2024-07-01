@@ -188,7 +188,7 @@ export default {
 .code {
   font-size: 12px;
   color: #888;
-  margin-bottom: 5px;
+  min-width: 70px;
   margin-right: 10px; /* Espaçamento à direita da checkbox */
 }
 
@@ -213,7 +213,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 40px;
   margin-bottom: 20px;
 }
 
