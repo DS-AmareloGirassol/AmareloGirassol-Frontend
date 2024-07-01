@@ -13,7 +13,7 @@
       </nav>
   
       <div class="header-account-actions">
-        <div class="header-account-view">
+        <div v-if="user_name != null" class="header-account-view">
           <span class="header-account-view-span">{{ user_name }}</span>
           <img class="header-account-view-img" src="../assets/account.png" @click="goToPerfil">
         </div>

@@ -55,7 +55,7 @@ export default {
         localStorage.setItem('user_name', response.data.user.name);
         localStorage.setItem('user_email', response.data.user.email);
 
-        this.$router.push({ name: 'Forum' });
+        this.$router.push({ name: 'Meu Fluxo' });
       } catch (err) {
         this.error = 'Invalid credentials';
       }
@@ -140,7 +140,6 @@ export default {
   border: none;
   border-radius: 4px;
   margin-bottom: 10px;
-  font-family: 'Inter', sans-serif;
   box-sizing: border-box;
 }
 
@@ -180,7 +179,6 @@ export default {
   font-size: 14px;
   text-align: left;
   transition: color 0.3s ease;
-  font-family: 'Inter', sans-serif;
 }
 
 .forgot-password:hover {
@@ -194,7 +192,6 @@ export default {
   margin-top: 20px;
   font-size: 13px;
   color: white;
-  font-family: 'Inter', sans-serif;
 }
 
 .cadastro-page a {

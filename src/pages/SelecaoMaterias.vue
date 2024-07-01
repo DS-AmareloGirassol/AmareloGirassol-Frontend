@@ -1,9 +1,12 @@
 <template>
     <div>
       <HeaderComponent />
-      <div class="container">
+      <div class="containerSelecao">
+        <div class="container-selecao-title">Olá!!</div>
+        <div class="container-selecao-title-sub">Primeiro passo para visualizar sua posição no fluxo é descrever quais matérias você a cursou na graduação:</div>
+
         <!-- Container da barra de pesquisa e seletor de período -->
-        <div class="search-filter-container">
+        <!-- <div class="search-filter-container">
           <input
             type="text"
             class="form-control search-bar"
@@ -22,7 +25,7 @@
             <option>9º semestre</option>
             <option>10º semestre</option>
           </select>
-        </div>
+        </div> -->
         <!-- Conteúdo do site com múltiplas disciplinas -->
         <div class="content">
           <div
@@ -42,11 +45,10 @@
         </div>
         <!-- Botão "Concluído" -->
         <div class="button-container">
-     <button class="click-button" @click="updateSubjectsUser">
-       <span>Concluído</span>
-       <div class="plus-icon"></div>
-     </button>
-   </div>
+          <button class="click-button" @click="updateSubjectsUser">
+            <span>Concluído</span>
+          </button>
+        </div>
        
       </div>
       <FooterComponent />
@@ -119,8 +121,10 @@
 
       async updateSubjectsUser() {
         try {
+          const user_id = localStorage.getItem('user_id')
           const token = localStorage.getItem('token')
-          const response = await axios.post('http://localhost:8000/api/users/1/add-subject/', this.selectList, { headers: { authorization:`Token ${token}` } });
+
+          const response = await axios.post(`http://localhost:8000/api/users/${user_id}/add-subject/`, this.selectList, { headers: { authorization:`Token ${token}` } });
           
           this.goToFluxo()
         } catch (err) {
@@ -140,63 +144,7 @@
   </script>
   
   <style scoped>
-  
-  .header-logo {}
-  .header-nav {
-    display: flex;
-    justify-content: end; /* Alinha os itens do nav para a direita */
-    align-items: center; /* Centraliza verticalmente os itens */
-  }
-  ul {
-    display: flex;
-    flex-direction: row;
-    gap: 50px; /* Ajusta a separação entre cada item da barra de navegação */
-    list-style-type: none; /* Remove os marcadores de lista padrão */
-    margin: 0;
-    padding: 0;
-  }
-  .header-nav-li {
-    padding: 15px;
-    font-size: 20px;
-    font-weight: 500;
-    cursor: pointer;
-  }
-  .header-nav-li:hover {
-    background-color: #d7d7d8;
-    border-radius: 10px;
-  }
-  .header-account-actions {
-    display: flex;
-    align-items: center;
-  }
-  .header-account-view {
-    display: flex;
-    margin-right: 30px;
-  }
-  .header-account-view-span {
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-    font-size: 16px;
-  }
-  .header-account-view-img {
-    height: 40px;
-    padding: 10px;
-    cursor: pointer;
-    background-color: #160094; /* Background azul */
-    border-radius: 10px; /* Border radius para fazer cantos arredondados */
-  }
-  .header-logout {
-    display: flex;
-  }
-  .header-logout-img {
-    height: 40px;
-    padding: 10px;
-    cursor: pointer;
-    background-color: #009942; /* Background azul */
-    border-radius: 10px; /* Border radius para fazer cantos arredondados */
-  }
-  .container {
+  .containerSelecao {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -204,6 +152,19 @@
     max-width: 1100px;
     margin: 20px auto;
   }
+
+  .container-selecao-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #11067a;
+    font-weight: 600;
+  }
+
+  .container-selecao-title-sub {
+    font-size: 18px;
+    margin-bottom: 50px;
+  }
+
   .search-filter-container {
     display: flex;
     justify-content: center; /* Centraliza os elementos horizontalmente */
@@ -214,7 +175,6 @@
   .search-bar {
     width: 70%; /* Ajusta a largura da barra de pesquisa */
     padding: 15px; /* Ajusta o padding para uma aparência mais robusta */
-    font-family: 'Arial', sans-serif;
     font-size: 16px; /* Aumenta o tamanho da fonte */
     border-radius: 10px;
     border: 1px solid #11067a;
@@ -222,7 +182,6 @@
   .select-period {
     width: 25%; /* Ajusta a largura do seletor */
     padding: 10px; /* Ajusta o padding para uma aparência consistente */
-    font-family: 'Arial', sans-serif;
     font-size: 14px;
     border-radius: 10px;
     border: 1px solid #ccc;
@@ -235,8 +194,6 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #e0e0e0; /* Linha divisória entre itens */
-    padding-bottom: 15px; /* Espaçamento inferior para cada item */
-    margin-bottom: 15px; /* Espaçamento inferior para a linha */
   }
   .info-section {
     display: flex;
@@ -247,23 +204,20 @@
     align-items: center;
   }
   .code {
-    font-family: 'Arial', sans-serif;
     font-size: 12px;
     color: #888;
-    margin-bottom: 5px;
-    margin-right: 10px; /* Espaçamento à direita da checkbox */
+    min-width: 70px;
+    margin: 0 10px; /* Espaçamento à direita da checkbox */
   }
   .discipline-name {
-    font-family: 'Arial Black', sans-serif;
-    font-size: 24px;
+    font-size: 20px;
     color: #333;
     margin-right: 20px;
   }
   .highlighted {
-    background-color: rgba(211, 211, 211, 0.7); /* Cor de marca-texto */
+    color: #009942;
   }
   .professor-name {
-    font-family: 'Arial', sans-serif;
     font-size: 14px;
     color: #0066cc;
     margin-top: 5px;
@@ -273,7 +227,6 @@
     color: #fff;
     border: none;
     padding: 10px 15px;
-    font-family: 'Arial', sans-serif;
     font-size: 14px;
     border-radius: 5px;
   }
@@ -283,7 +236,6 @@
     align-items: center;
   }
   .rating-label {
-    font-family: 'Arial', sans-serif;
     font-size: 14px;
     color: #666;
     text-align: center;
@@ -291,22 +243,34 @@
   }
 
   .button-container {
- display: flex;
- justify-content: center;
- margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .click-button {
- display: flex;
- align-items: center;
- padding: 20px 40px;
- border: none;
- border-radius: 50px;
- background-color: #ffffff;
- box-shadow: 0 0 10px rgba(0, 0, 255, 0.2);
- cursor: pointer;
- transition: box-shadow 0.3s ease;
- position: relative;
+  display: flex;
+  align-items: center;
+  padding: 20px 40px;
+  border: none;
+  border-radius: 50px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 255, 0.2);
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+  position: relative;
+}
+
+.click-button span {
+  font-size: 24px;
+  font-weight: bold;
+  color: #091f77;
+}
+
+.click-button:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 255, 0.4);
 }
 
 .plus-icon {

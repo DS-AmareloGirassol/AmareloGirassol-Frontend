@@ -233,7 +233,6 @@ input{
     color: #029e46;
     margin-top: 15px;
     font-size: 17.5px;
-    font-family: "Jost", sans-serif normal;
    
 }
 
@@ -286,13 +285,11 @@ body {
 .aval h2 {
     line-height: 20px;
     margin-top: 25px;
-    font-family: "Plus Jakarta Sans", sans-serif normal;
 }
 
 h2 {
     color: #2710b9;
     font-size: 30px;
-    font-family: "Plus Jakarta Sans", sans-serif, normal;
 }
 
 h2 span1 {
@@ -306,7 +303,6 @@ h2 span1 {
     color: #111;
     font-size: 16px;
     font-weight: normal;
-    font-family: "Jost", sans-serif, normal;
 }
 
 .professor input {

@@ -81,13 +81,10 @@ export default {
 
 <style>
 /* Importação das fontes */
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
+
 
 /* Estilos gerais */
 body {
-  font-family: 'Jost', sans-serif;
   background-color: #EAEAEA;
 }
 
@@ -164,7 +161,6 @@ body {
   border: none;
   border-radius: 4px;
   margin-bottom: 10px;
-  font-family: 'Inter', sans-serif;
   box-sizing: border-box;
 }
 
@@ -176,7 +172,6 @@ body {
 .cadastro-form label {
   color: white;
   font-size: 14px;
-  font-family: 'Inter', sans-serif;
   margin-bottom: 5px;
   display: block;
 }
@@ -214,7 +209,6 @@ body {
   margin-top: 20px;
   font-size: 14px;
   color: white;
-  font-family: 'Inter', sans-serif;
 }
 
 .Login-page a {

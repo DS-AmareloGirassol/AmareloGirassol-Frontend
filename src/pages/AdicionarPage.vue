@@ -88,7 +88,6 @@ export default {
 }
 
 .wrapper h3 {
-  font-family: 'Jost', sans-serif;
   font-size: 28px;
   text-align: center;
   margin-bottom: 20px;
@@ -96,7 +95,6 @@ export default {
 
 .wrapper p {
   color: #12017D;
-  font-family: 'Jost', sans-serif;
   font-size: 14px;
 }
 
@@ -123,7 +121,6 @@ export default {
 
 .input-box input::placeholder {
   color: #7c7c8a;
-  font-family: 'Jost', sans-serif;
 }
 
 .comentario {
@@ -139,7 +136,6 @@ textarea {
   resize: none;
   height: 100px;
   font-size: 16px;
-  font-family: 'Jost', sans-serif;
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -159,7 +155,6 @@ textarea {
   margin: 10px;
   cursor: pointer;
   font-size: 16px;
-  font-family: 'Jost', sans-serif;
 }
 
 .btn1 {
@@ -173,6 +168,5 @@ textarea {
   margin: 10px;
   cursor: pointer;
   font-size: 16px;
-  font-family: 'Jost', sans-serif;
 }
 </style>

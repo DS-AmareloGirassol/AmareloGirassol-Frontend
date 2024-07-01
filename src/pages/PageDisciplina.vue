@@ -140,7 +140,6 @@ export default {
 .search-bar {
   width: 70%;
   padding: 15px;
-  font-family: 'Arial', sans-serif;
   font-size: 16px;
   border-radius: 10px;
   border: 1px solid #11067a;
@@ -185,7 +184,6 @@ export default {
 }
 
 .code {
-  font-family: 'Arial', sans-serif;
   font-size: 12px;
   color: #888;
   margin-bottom: 5px;
@@ -193,13 +191,11 @@ export default {
 }
 
 .discipline-name {
-  font-family: 'Arial Black', sans-serif;
   font-size: 24px;
   color: #333;
 }
 
 .professor-name {
-  font-family: 'Arial', sans-serif;
   font-size: 14px;
   color: #0066cc;
   margin-top: 5px;
@@ -210,7 +206,6 @@ export default {
   color: #fff;
   border: none;
   padding: 10px 15px;
-  font-family: 'Arial', sans-serif;
   font-size: 14px;
   border-radius: 5px;
   align-self: flex-end; /* Move the button to the right */
@@ -233,7 +228,6 @@ export default {
 }
 
 .rating-label {
-  font-family: 'Arial', sans-serif;
   font-size: 14px;
   color: #666;
   text-align: center;

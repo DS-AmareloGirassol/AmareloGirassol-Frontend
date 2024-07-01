@@ -171,7 +171,6 @@ data() {
     height: 300px;
     flex-shrink: 0;
     text-align: center;
-    font-family: Jost;
     font-size: 60px;
     font-style: normal;
     font-weight: 700;
@@ -237,7 +236,6 @@ data() {
 
 .cartao h1{
     color: #161C2D;
-    font-family: Inter;
     font-size: 16.336px;
     font-style: normal;
     line-height: 17px;
@@ -257,7 +255,6 @@ data() {
 }
 
 #msg xmp{
-    font-family: 'Impact Regular';
     line-height: 39px;
     font-size: 26px;
     letter-spacing: 3px;
