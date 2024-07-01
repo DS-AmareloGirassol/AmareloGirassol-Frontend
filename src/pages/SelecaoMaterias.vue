@@ -26,7 +26,7 @@
         <!-- Conteúdo do site com múltiplas disciplinas -->
         <div class="content">
           <div
-            v-for="(disciplina, index) in disciplinas"
+            v-for="(disciplina, index) in subjectsList"
             :key="index"
             class="row align-items-center justify-content-between mb-4"
           >
@@ -58,6 +58,7 @@
   </template>
   
   <script>
+  import axios from 'axios';
   import { ref, defineComponent } from 'vue';
   import HeaderComponent from '../components/HeaderComponent.vue';
   import FooterComponent from '../components/FooterComponent.vue';
@@ -93,20 +94,37 @@
             rating: 3,
             checked: false
           },
-          // Adicione mais disciplinas conforme necessário
-        ]
+        ],
+        subjectsList: []
       }
     },
+
+    async mounted () {
+      await this.getSubjectList()
+      console.log(this.subjectsList.length)
+    },
+
     methods: {
       goToFluxo() {
-        this.$router.push('/fluxo.vue'); // Redireciona para a página 'fluxo.vue'
+        this.$router.push('/fluxo.vue'); 
+      },
+      
+      async getSubjectList() {
+        try {
+          const token = localStorage.getItem('token')
+          const response = await axios.get('http://localhost:8000/api/subject/', { headers: { authorization:`Token ${token}` } });
+
+          this.subjectsList = response.data
+
+        } catch (err) {
+          this.error = 'erro'
+        }
       }
     }
   });
   </script>
   
   <style scoped>
-  /* Adicione seus estilos aqui */
   
   .header-logo {}
   .header-nav {
