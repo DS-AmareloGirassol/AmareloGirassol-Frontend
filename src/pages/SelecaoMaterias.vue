@@ -43,8 +43,8 @@
         <!-- Botão "Concluído" -->
         <div class="button-container">
      <button class="click-button">
-       <span>Concluído</span>
-       <div class="plus-icon"></div>
+       <span>Concluído!</span>
+       
      </button>
    </div>
        
@@ -263,23 +263,35 @@
  margin: 20px;
 }
 
-.click-button {
- display: flex;
- align-items: center;
- padding: 20px 40px;
- border: none;
- border-radius: 50px;
- background-color: #ffffff;
- box-shadow: 0 0 10px rgba(0, 0, 255, 0.2);
- cursor: pointer;
- transition: box-shadow 0.3s ease;
- position: relative;
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
 }
 
-.plus-icon {
- width: 24px;
- height: 24px;
- position: relative;
+.click-button {
+  display: flex;
+  align-items: center;
+  padding: 20px 40px;
+  border: none;
+  border-radius: 50px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 255, 0.2);
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+  position: relative;
+}
+
+.click-button span {
+  font-size: 24px;
+  font-weight: bold;
+  color: #091f77;
+  margin-right: 20px;
+}
+
+.click-button:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 255, 0.4);
 }
 </style>
   

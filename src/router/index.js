@@ -65,7 +65,7 @@ const router = createRouter({
       component: () => import('../pages/DetalheDisciplinaPage.vue')
     },
     {
-      path: '/fluxo',
+      path: '/meufluxo',
       name: 'Meu Fluxo',
       component: () => import('../pages/Fluxo.vue')
     },
