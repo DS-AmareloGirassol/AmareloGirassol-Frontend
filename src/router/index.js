@@ -44,7 +44,7 @@ const router = createRouter({
     },
     {
       path: '/adicionar',
-      name: '/Adicionar',
+      name: 'Adicionar Post',
       component: () => import('../pages/AdicionarPage.vue'),
     },
     {

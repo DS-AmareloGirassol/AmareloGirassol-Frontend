@@ -18,7 +18,7 @@
       </div>
     
     <div class="button-container">
-      <button class="click-button">
+      <button class="click-button" @click="goToAdicionarPost">
         <span>Nova Postagem</span>
         <div class="plus-icon"></div>
       </button>
@@ -104,6 +104,10 @@ export default defineComponent({
   },
 
   methods: {
+    goToAdicionarPost() {
+      this.$router.push({ name: 'Adicionar Post' });
+    },
+
     async getPostList() {
       try {
         const token = localStorage.getItem('token')
