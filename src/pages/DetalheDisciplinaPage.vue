@@ -23,22 +23,18 @@
                 <div>
                     <span><b>Metodologia de Avaliação</b></span>: 
                     <span v-for="n in 5" :key="'metodologia' + n" class="star-icon" :class="{ ativo: n <= avaliacaoDisciplina.metodologia }"></span>
-                    {{ avaliacaoDisciplina.metodologia }}
                 </div>
                 <div>
                     <span><b>Didática do Professor</b></span>: 
                     <span v-for="n in 5" :key="'didatica' + n" class="star-icon" :class="{ ativo: n <= avaliacaoDisciplina.didatica }"></span>
-                    {{ avaliacaoDisciplina.didatica }}
                 </div>
                 <div>
                     <span><b>Suporte do Professor e Monitores</b></span>: 
                     <span v-for="n in 5" :key="'suporte' + n" class="star-icon" :class="{ ativo: n <= avaliacaoDisciplina.suporte }"></span>
-                    {{ avaliacaoDisciplina.suporte }}
                 </div>
                 <div>
                     <span><b>Índice de Recomendação</b></span>: 
                     <span v-for="n in 5" :key="'recomendacao' + n" class="star-icon" :class="{ ativo: n <= avaliacaoDisciplina.recomendacao }"></span>
-                    {{ avaliacaoDisciplina.recomendacao }}
                 </div>
             </div>
         </div>
@@ -165,7 +161,7 @@ export default defineComponent({
 .star-icon {
     list-style-type: none;
     cursor: pointer;
-    color: #ffe500;
+    color: #2710B9;
     font-size: 30px;
     margin-right: 2px;
 }
