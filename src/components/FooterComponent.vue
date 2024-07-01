@@ -13,7 +13,7 @@
 footer {
     width: 100%;
     text-align: center;
-    background-color: #12017D;
+    background-color: #091f77;
     padding: 26px 0;
     color:#FFFFFF;
 }

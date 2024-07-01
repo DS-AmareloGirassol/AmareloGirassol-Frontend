@@ -4,6 +4,11 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
+      path: '/',
+      name: 'Home',
+      component: () => import('../pages/HomePage.vue'),
+    },
+    {
       path: '/forum',
       name: 'Forum',
       component: () => import('../pages/ForumPage.vue'),
@@ -13,7 +18,6 @@ const router = createRouter({
       path: '/login',
       name: 'Login',
       component: () => import('../pages/LoginPage.vue'),
-      
     },
     {
       path: '/cadastro',
@@ -56,8 +60,23 @@ const router = createRouter({
     {
       path: '/fluxo',
       name: 'Fluxo',
-      component: () => import('../pages/PerfilPage.vue'),
+      component: () => import('../pages/Fluxo.vue'),
       meta: { requiresAuth: true }
+    },
+    {
+      path: '/disciplina',
+      name: 'Detalhe Disciplina',
+      component: () => import('../pages/DetalheDisciplinaPage.vue')
+    },
+    {
+      path: '/fluxo',
+      name: 'Meu Fluxo',
+      component: () => import('../pages/Fluxo.vue')
+    },
+    {
+      path: '/selecao',
+      name: 'Seleção',
+      component: () => import('../pages/SelecaoMaterias.vue')
     }
   ]
 })

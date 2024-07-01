@@ -1,25 +1,5 @@
 <template>
-  <header>
-    <h1 class="header-logo"><\UnbConnect></h1>
-
-    <nav class="header-nav">
-      <ul>
-        <li class="header-nav-li" @click="goToFluxo">Meu Fluxo</li>
-        <li class="header-nav-li" @click="goToDisciplinas">Disciplinas</li>
-        <li class="header-nav-li" @click="goToForum">Fórum</li>
-      </ul>
-    </nav>
-
-    <div class="header-account-actions">
-      <div class="header-account-view">
-        <span class="header-account-view-span">{{ user_name }}</span>
-        <img class="header-account-view-img" src="../assets/account.png" @click="goToPerfil">
-      </div>
-      <div class="header-logout">
-        <img class="header-logout-img" src="../assets/logout.png" @click="logoutAccount">
-      </div>
-    </div>
-  </header>
+  <HeaderComponent/>
 
   <div class="container">
     <!-- Container da barra de pesquisa e botão de pesquisa -->
@@ -33,7 +13,7 @@
       />
       <datalist id="disciplinasList">
         <option 
-          v-for="disciplina in disciplinas" 
+          v-for="disciplina in disciplinasMock" 
           :key="disciplina.code" 
           :value="disciplina.name"
         ></option>
@@ -58,24 +38,31 @@
             <p class="professor-name">{{ disciplina.professor }}</p>
           </div>
         </div>
+
         <button class="btn btn-view-evaluation">Ver avaliação Geral</button>
       </div>
     </div>
   </div>
-
-  <footer>
-    <p>©2024, UnBConnect.</p>
-    <p>Amarelo Girassol - Desenvolvimento de Software, 2024/1.</p>
-  </footer>
 </template>
 
 <script>
+import axios from 'axios';
+
+import HeaderComponent from '../components/HeaderComponent.vue';
+import FooterComponet from '../components/FooterComponent.vue';
+
 export default {
+  components: {
+    HeaderComponent,
+    FooterComponet
+  },
+
   name: 'Disciplinas',
   data() {
     return {
       searchQuery: '',
-      disciplinas: [
+      disciplinasList: [],
+      disciplinasMock: [
         {
           name: 'Matemática Discreta 1',
           rating: 5,
@@ -101,18 +88,33 @@ export default {
   },
   computed: {
     filteredDisciplinas() {
-      return this.disciplinas.filter(disciplina => 
+      return this.disciplinasMock.filter(disciplina => 
         disciplina.name.toLowerCase().includes(this.searchQuery.toLowerCase()) || 
         disciplina.professor.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
         disciplina.code.toLowerCase().includes(this.searchQuery.toLowerCase())
       );
     }
   },
+
+  async mounted () {
+    await this.getDisciplinaList()
+  },
+
   methods: {
     performSearch() {
       // Ação para realizar a pesquisa
       // Aqui não precisamos de lógica adicional já que usamos o computed
       console.log(`Pesquisa realizada: ${this.searchQuery}`);
+    },
+
+    async getDisciplinaList() {
+      try {
+        const token = localStorage.getItem('token')
+        const response = await axios.get('http://localhost:8000/api/subject/', { headers: { authorization:`Token ${token}` } });
+
+        this.disciplinasList = response.data
+
+      } catch (err) {}
     }
   }
 }
@@ -290,6 +292,7 @@ ul {
   font-size: 14px;
   border-radius: 5px;
   align-self: flex-end; /* Move the button to the right */
+  cursor: pointer
 }
 
 .rating-section {
