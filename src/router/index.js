@@ -49,13 +49,13 @@ const router = createRouter({
       meta: { requiresAuth: true }
     },
     {
-      path: '/feedback',
+      path: '/feedback/:disciplina_id',
       name: 'Feedback',
       component: () => import('../pages/FeedbackPage.vue'),
       meta: { requiresAuth: true }
     },
     {
-      path: '/detalhe-disciplina',
+      path: '/detalhe-disciplina/:disciplina_id',
       name: 'Detalhe Disciplina',
       component: () => import('../pages/DetalheDisciplinaPage.vue'),
       meta: { requiresAuth: true }

@@ -2,56 +2,58 @@
     <HeaderComponent/>
     <section class="disciplina-descricao-page">
         <div class="disciplina-descricao-page-title">Avaliação Geral da Disciplina</div>
-<section class="avaliacao-fundo">
-        <div class="disciplina-descricao">
-            <div class="div-disciplina-conteudo">
-                <div>
-                    <span><b>Disciplina</b></span>: {{ disciplina.nome }}
-                </div>
-                <div>
-                    <span><b>Semestre de oferta</b></span>: {{ disciplina.semestreDeOferta }}
-                </div>
-                <div>
-                    <span><b>Código</b></span>: {{ disciplina.codigo }}
-                </div>
-                <div>
-                    <span><b>Carga horária</b></span>: {{ disciplina.cargaHoraria }}
+            <div class="avaliacao-fundo">
+                <div class="disciplina-descricao">
+                    <div class="div-disciplina-conteudo">
+                        <div>
+                            <span><b>Disciplina</b></span>: {{ name }}
+                        </div>
+                        <div>
+                            <span><b>Semestre de oferta</b></span>: {{ default_semester }}
+                        </div>
+                        <div>
+                            <span><b>Código</b></span>: {{ code }}
+                        </div>
+                        <div>
+                            <span><b>Carga horária</b></span>: {{ workload }}
+                        </div>
+                    </div>
+
+                    <div class="div-disciplina-avaliacao">
+                        <div>
+                            <span><b>Metodologia de Avaliação</b></span>: 
+                            <span v-for="n in 5" :key="'metodologia' + n" class="star-icon" :class="{ ativo: n <= avaliacaoDisciplina.metodologia }"></span>
+                        </div>
+                        <div>
+                            <span><b>Didática do Professor</b></span>: 
+                            <span v-for="n in 5" :key="'didatica' + n" class="star-icon" :class="{ ativo: n <= avaliacaoDisciplina.didatica }"></span>
+                        </div>
+                        <div>
+                            <span><b>Suporte do Professor e Monitores</b></span>: 
+                            <span v-for="n in 5" :key="'suporte' + n" class="star-icon" :class="{ ativo: n <= avaliacaoDisciplina.suporte }"></span>
+                        </div>
+                        <div>
+                            <span><b>Índice de Recomendação</b></span>: 
+                            <span v-for="n in 5" :key="'recomendacao' + n" class="star-icon" :class="{ ativo: n <= avaliacaoDisciplina.recomendacao }"></span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="div-disciplina-avaliacao">
-                <div>
-                    <span><b>Metodologia de Avaliação</b></span>: 
-                    <span v-for="n in 5" :key="'metodologia' + n" class="star-icon" :class="{ ativo: n <= avaliacaoDisciplina.metodologia }"></span>
+            <div class="disciplina-botoes">
+                <div class="botao-avaliar" @click="goToAvaliar">
+                    Avaliar Disciplina
                 </div>
-                <div>
-                    <span><b>Didática do Professor</b></span>: 
-                    <span v-for="n in 5" :key="'didatica' + n" class="star-icon" :class="{ ativo: n <= avaliacaoDisciplina.didatica }"></span>
-                </div>
-                <div>
-                    <span><b>Suporte do Professor e Monitores</b></span>: 
-                    <span v-for="n in 5" :key="'suporte' + n" class="star-icon" :class="{ ativo: n <= avaliacaoDisciplina.suporte }"></span>
-                </div>
-                <div>
-                    <span><b>Índice de Recomendação</b></span>: 
-                    <span v-for="n in 5" :key="'recomendacao' + n" class="star-icon" :class="{ ativo: n <= avaliacaoDisciplina.recomendacao }"></span>
-                </div>
-            </div>
-        </div>
-    </section>
-        <div class="disciplina-botoes">
-            <div class="botao-avaliar">
-                Avaliar Disciplina
-            </div>
 
-            <div class="botao-voltar">
-                Voltar
+                <div class="botao-voltar" @click="handleCancel">
+                    Voltar
+                </div>
             </div>
-        </div>
     </section>
 </template>
 
 <script>
+import axios from 'axios';
 import { ref, defineComponent } from 'vue';
 import HeaderComponent from '../components/HeaderComponent.vue';
 import FooterComponent from '../components/FooterComponent.vue';
@@ -64,13 +66,10 @@ export default defineComponent({
 
     data() {
         return {
-            disciplina: {
-                id: '1',
-                nome: 'Método de Desenvolvimento de Software',
-                semestreDeOferta: '5',
-                codigo: '12345',
-                cargaHoraria: '60h'
-            },
+            name: null,
+            code: null,
+            workload: null,
+            default_semester: null,
             avaliacaoDisciplina: {
                 metodologia: 1,
                 didatica: 5,
@@ -78,6 +77,36 @@ export default defineComponent({
                 recomendacao: 2
             }
         };
+    },
+
+    async mounted() {
+        await this.getInfosDisciplina()
+    },
+
+    methods: {
+        goToAvaliar() {
+            this.$router.push({ name: 'Feedback', params: { disciplina_id: this.$route.params.disciplina_id } });
+        },
+
+        handleCancel() {
+            this.$router.push({ name: 'Disciplina' });
+        },
+
+        async getInfosDisciplina() {
+            try {
+                const disciplina_id = this.$route.params.disciplina_id;
+                const token = localStorage.getItem('token')
+
+                const response = await axios.get(`http://localhost:8000/api/subject/${disciplina_id}/`, { headers: { authorization:`Token ${token}` } });
+
+                this.name = response.data.name,
+                this.code = response.data.code,
+                this.workload = response.data.workload,
+                this.default_semester = response.data.default_semester
+            } catch (err) {
+                this.error = 'erro'
+            }
+        },
     }
 });
 </script>
@@ -125,7 +154,7 @@ export default defineComponent({
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 300px;
+    margin-top: 50px;
 }
 
 .botao-avaliar, .botao-voltar {
@@ -154,10 +183,6 @@ export default defineComponent({
     background-color: #045d29;
 }
 
-.botao-voltar:hover {
-    background-color: #1a0a85;
-}
-
 .star-icon {
     list-style-type: none;
     cursor: pointer;
@@ -183,4 +208,36 @@ export default defineComponent({
         margin-bottom: 50px;
 
     } */
+
+.criar-postagem-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.botao-avaliar {
+  background-color: #008137;
+  color: #fff;
+  height: 50px;
+  width: 150px;
+  border: 0;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.botao-voltar {
+  background-color: #e3e4e8;
+  color: #000;
+  height: 50px;
+  width: 150px;
+  border: 0;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
 </style>

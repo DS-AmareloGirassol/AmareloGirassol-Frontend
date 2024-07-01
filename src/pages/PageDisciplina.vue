@@ -39,7 +39,7 @@
           </div>
         </div>
 
-        <button class="btn btn-view-evaluation">Ver avaliação Geral</button>
+        <button class="btn btn-view-evaluation" @click="goToDetalheDisciplina(disciplina.id)">Ver avaliação Geral</button>
       </div>
     </div>
   </div>
@@ -100,6 +100,10 @@ export default {
   },
 
   methods: {
+    goToDetalheDisciplina(id) {
+      this.$router.push({ name: 'Detalhe Disciplina', params: { disciplina_id: id } });
+    },
+    
     performSearch() {
       // Ação para realizar a pesquisa
       // Aqui não precisamos de lógica adicional já que usamos o computed

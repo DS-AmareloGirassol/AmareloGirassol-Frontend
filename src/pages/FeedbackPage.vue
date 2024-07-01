@@ -7,111 +7,54 @@
         <h2 class="titulo-page">
           <span class="text-avaliacao">Feedback Geral Disciplina</span>
         </h2>
-        <div class="professor">
+        <!-- <div class="professor">
           <p>Professor(a): <input type="text" placeholder="Professor"></p>
-        </div>
+        </div> -->
         <p>Metodologia</p>
         <div class="numb-container">
-          <div class="numb">
-            <img src="/src/assets/number-1.png" alt="um">
-          </div>
-          <div class="numb">
-            <img src="/src/assets/number-2.png" alt="dois">
-          </div>
-          <div class="numb">
-            <img src="/src/assets/number-3.png" alt="três">
-          </div>
-          <div class="numb">
-            <img src="/src/assets/number-4.png" alt="quatro">
-          </div>
-          <div class="numb active">
-            <img src="/src/assets/number-5.png" alt="cinco">
+          <div v-for="rating in 5" :key="'metodologia-' + rating" 
+               :class="['numb', metodologiaRating === rating ? 'active' : '']"
+               @click="setRating('metodologiaRating', rating)">
+            <img :src="`/src/assets/number-${rating}.png`" :alt="`nota ${rating}`">
           </div>
         </div>
         <p>Trabalhos</p>
         <div class="numb-container">
-          <div class="numb">
-            <img src="/src/assets/number-1.png" alt="um">
-          </div>
-          <div class="numb">
-            <img src="/src/assets/number-2.png" alt="dois">
-          </div>
-          <div class="numb">
-            <img src="/src/assets/number-3.png" alt="três">
-          </div>
-          <div class="numb">
-            <img src="/src/assets/number-4.png" alt="quatro">
-          </div>
-          <div class="numb active">
-            <img src="/src/assets/number-5.png" alt="cinco">
+          <div v-for="rating in 5" :key="'trabalhos-' + rating" 
+               :class="['numb', trabalhosRating === rating ? 'active' : '']"
+               @click="setRating('trabalhosRating', rating)">
+            <img :src="`/src/assets/number-${rating}.png`" :alt="`nota ${rating}`">
           </div>
         </div>
         <p>Provas</p>
         <div class="numb-container">
-          <div class="numb">
-            <img src="/src/assets/number-1.png" alt="um">
-          </div>
-          <div class="numb">
-            <img src="/src/assets/number-2.png" alt="dois">
-          </div>
-          <div class="numb">
-            <img src="/src/assets/number-3.png" alt="três">
-          </div>
-          <div class="numb">
-            <img src="/src/assets/number-4.png" alt="quatro">
-          </div>
-          <div class="numb active">
-            <img src="/src/assets/number-5.png" alt="cinco">
+          <div v-for="rating in 5" :key="'provas-' + rating" 
+               :class="['numb', provasRating === rating ? 'active' : '']"
+               @click="setRating('provasRating', rating)">
+            <img :src="`/src/assets/number-${rating}.png`" :alt="`nota ${rating}`">
           </div>
         </div>
         <p>Material de Estudo</p>
         <div class="numb-container">
-          <div class="numb">
-            <img src="/src/assets/number-1.png" alt="um">
-          </div>
-          <div class="numb">
-            <img src="/src/assets/number-2.png" alt="dois">
-          </div>
-          <div class="numb">
-            <img src="/src/assets/number-3.png" alt="três">
-          </div>
-          <div class="numb">
-            <img src="/src/assets/number-4.png" alt="quatro">
-          </div>
-          <div class="numb active">
-            <img src="/src/assets/number-5.png" alt="cinco">
+          <div v-for="rating in 5" :key="'materialEstudo-' + rating" 
+               :class="['numb', materialEstudoRating === rating ? 'active' : '']"
+               @click="setRating('materialEstudoRating', rating)">
+            <img :src="`/src/assets/number-${rating}.png`" :alt="`nota ${rating}`">
           </div>
         </div>
         <p>Facilidade</p>
         <div class="numb-container">
-          <div class="numb">
-            <img src="/src/assets/number-1.png" alt="um">
-          </div>
-          <div class="numb">
-            <img src="/src/assets/number-2.png" alt="dois">
-          </div>
-          <div class="numb">
-            <img src="/src/assets/number-3.png" alt="três">
-          </div>
-          <div class="numb">
-            <img src="/src/assets/number-4.png" alt="quatro">
-          </div>
-          <div class="numb active">
-            <img src="/src/assets/number-5.png" alt="cinco">
+          <div v-for="rating in 5" :key="'facilidade-' + rating" 
+               :class="['numb', facilidadeRating === rating ? 'active' : '']"
+               @click="setRating('facilidadeRating', rating)">
+            <img :src="`/src/assets/number-${rating}.png`" :alt="`nota ${rating}`">
           </div>
         </div>
-        <div class="semestre">
-          <p>Qual semestre cursou esta disciplina</p>
-        </div>
-        <select id="semestre" v-model="form.semestre" class="form-element">
-          <option value="" disabled>Selecione um semestre</option>
-          <option v-for="semestre in semestres" :key="semestre" :value="semestre">{{ semestre }}º Semestre</option>
-        </select>
       </div>
+      
       <div class="feedback">
-        <h3>Dê seu feedback</h3>
-        <p>Sinta-se à vontade para compartilhar sua opinião sobre a disciplina ou professor</p>
-        <div class="icons-container">
+        <!-- <h3>Faça seu Comentário</h3> -->
+        <!-- <div class="icons-container">
           <div class="icons">
             <img src="/src/assets/sad.png" alt="terrível">
             <small>Emoção</small>
@@ -128,40 +71,54 @@
             <img src="/src/assets/lol.png" alt="perfeito">
             <small>Emoção</small>
           </div>
-        </div>
-        <div class="comentario">
-          <p>Caso queira adicionar um comentário sobre o tópico acima, utilize a caixa de comentários abaixo:</p>
+        </div> -->
+        <!-- <div class="comentario">
+          <p>Caso queira adicionar um comentário, utilize a caixa de comentários abaixo:</p>
           <textarea name="opinion" cols="30" rows="10" placeholder="Deixe um comentário..."></textarea>
-        </div>
-        <form @submit.prevent="submitFeedback">
-          <button type="submit" class="btn">Enviar</button>
-          <button type="button" class="btn1" @click="cancelFeedback">Cancelar</button>
-        </form>
+        </div> -->
       </div>
+
+      <div class="criar-postagem-buttons">
+          <div type="submit" class="btn" @click="createFeedback">Enviar</div>
+          <div type="button" class="btn1" @click="handleCancel">Cancelar</div>
+        </div>
     </div>
+
+    <SuccessMessageModal
+      v-if="isModalVisible"
+      :show="isModalVisible"
+      message="Avaliação efetuada com sucesso!!"
+      @close="isModalVisible = false"
+    />
+
     <FooterComponent/>
   </section>
 </template>
 
 <script>
+import axios from 'axios';
+
 import HeaderComponent from '../components/HeaderComponent.vue';
 import FooterComponent from '../components/FooterComponent.vue';
+import SuccessMessageModal from '../components/SuccessMessageModal.vue';
 
 export default {
   components: {
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SuccessMessageModal
   },
 
   data() {
     return {
+      isModalVisible: false,
       searchQuery: '',
       professor: '',
-      metodologiaRating: 5,
-      trabalhosRating: 5,
-      provasRating: 5,
-      materialEstudoRating: 5,
-      facilidadeRating: 5,
+      metodologiaRating: null,
+      trabalhosRating: null,
+      provasRating: null,
+      materialEstudoRating: null,
+      facilidadeRating: null,
       form: {
         semestre: ''
       },
@@ -169,13 +126,41 @@ export default {
     };
   },
   methods: {
-    submitFeedback() {
-      console.log(this.metodologiaRating)
-      alert('Feedback enviado com sucesso!');
+    sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
     },
-    cancelFeedback() {
-      // Aqui você pode adicionar a lógica para cancelar o feedback
-    }
+
+    setRating(category, rating) {
+      this[category] = rating;
+    },
+
+    async createFeedback() {
+      const disciplina_id = this.$route.params.disciplina_id;
+      const token = localStorage.getItem('token'); // Certifique-se de ter o token
+
+      try {
+        await axios.post('http://localhost:8000/api/feedback/', {
+          metodologia: this.metodologiaRating,
+          trabalho: this.trabalhosRating,
+          provas: this.provasRating,
+          material: this.materialEstudoRating,
+          facilidade: this.facilidadeRating,
+          user: localStorage.getItem('user_id'),
+          subject: disciplina_id
+        }, { headers: { authorization: `Token ${token}` } });
+
+        this.isModalVisible = true;
+        await this.sleep(2000);
+
+        this.$router.push({ name: 'Disciplina' });
+      } catch (error) {
+        console.error("Erro ao enviar feedback:", error);
+      }
+    },
+
+    handleCancel() {
+      this.$router.push({ name: 'Disciplina' });
+    },
   }
 };
 </script>
@@ -446,45 +431,46 @@ textarea {
     height: 100px;
     font-size: 16px;
     font-family: "Jost", sans-serif, normal;
-    
+}
 
+.criar-postagem-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  text-align: center;
 }
 
 
-
-form {
-    display: flex;
-    margin-top: 20px;
-    width: 100%;
-}
-
-
-
-.btn{
-   background-color: #12017D;
-   color: #fff;
-   height: 40px;
-   border: 0;
-   padding: 10px;
-   border-radius: 4px;
-   margin: 10px;
-   cursor: pointer;
-   font-size: 16px;
-   font-family: "Jost", sans-serif, normal;
-   
+.btn {
+  background-color: #008137;
+  color: #fff;
+  height: 50px;
+  width: 150px;
+  border: 0;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
 .btn1 {
-    background-color: #008137;
-    color: #fff;
-    height: 40px;
-    border: 0;
-    padding: 10px;
-    border-radius: 4px;
-    margin: 10px;
-    cursor: pointer;
-    font-size: 16px;
-    font-family: "Jost", sans-serif, normal;
+  background-color: #e3e4e8;
+  color: #000;
+  height: 50px;
+  width: 150px;
+  border: 0;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.numb.active {
+  border-radius: 6px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border: 2px solid blue;
 }
 
 </style>
