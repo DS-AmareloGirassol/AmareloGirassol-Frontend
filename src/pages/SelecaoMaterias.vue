@@ -27,7 +27,7 @@
           </select>
         </div> -->
         <!-- Conteúdo do site com múltiplas disciplinas -->
-        <div class="content">
+        <div class="contentSelecao">
           <div
             v-for="(disciplina, index) in subjectsList"
             :key="index"
@@ -202,7 +202,7 @@
     border-radius: 10px;
     border: 1px solid #ccc;
   }
-  .content {
+  .contentSelecao {
     margin-top: 20px; /* Espaçamento entre a barra de pesquisa e o conteúdo */
   }
   .row {
