@@ -1,113 +1,70 @@
 <template>
-    <header>
-        <nav>
-            <h1>
-                <xmp>< /UnB connect></xmp>
-            </h1>
-            <ul class="menu">
-                <li><a href="#informacao">Funcionalidades</a></li>
-                <li><a href="#minhas-habilidades">Sobre Nós</a></li>
-                <li><a href="#contatos">Contatos</a></li>
-            </ul>
-        </nav>
-    </header>
-        <section id="informacao">
-            <div id="sobre">
-                <h1>      </h1>
-                <h2 class="center-text">Monitore sua <span class="azul">jornada acadêmica</span> em um único lugar!</h2>
-            </div>
-            <div id="foto">
-              <img src="../assets/tela.png">
-            </div>
-        </section>
+    <HeaderComponent/>
 
+    <div id="informacao">
+        <div id="sobre">
+            <h2 class="center-text">Monitore sua <span class="azul">jornada acadêmica</span> em um único lugar!</h2>
+        </div>
+        <div id="foto">
+            <img src="../assets/tela.png">
+        </div>
+    </div>
         
-        <section id="servico">
+    <div id="servico">
         <div class="container">
-           <h1> Nossos serviços </h1>
-            <div class="wave"></div>    
-                <div class="content">
-                    <div class="card">
-          <h2>Avaliação de matéria</h2>
-          <p>
-            Avaliação de matéria com feedback, aprovação, indicação e semestre.
-            Para que você consiga ter uma noção sobre a matéria
+            <h1> Nossos serviços </h1>
 
-          </p>
-          <button>Saiba mais</button>
-        </div>
-            <div class="card">
-          <h2>Indicação de matéria</h2>
-          <p>
-            Visualizar a listagem das melhores matérias e também realizar buscas por outras matérias.
-          </p>
-          <button>Saiba mais</button>
+            <div class="content">
+                <div class="card">
+                    <h2>Avaliação de matéria</h2>
+                    <p>
+                        Avaliação de matéria com feedback, aprovação, indicação e semestre.
+                        Para que você consiga ter uma noção sobre a matéria
+                    </p>
+                </div>
+                <div class="card">
+                    <h2>Ver sua posição no fluxo</h2>
+                    <p>Visualize sua posição no fluxo e insira as matérias já feitas para se organizar melhor</p>
+                    </div>
+                <div class="card">
+                    <h2>Fóruns</h2>
+                    <p>
+                        Lista de postagens com atividades diversas, cada uma contendo nome, descrição, proprietário e link.
+                    </p>
+                </div>
             </div>
-        <div class="card">
-          <h2>Ver sua posição no fluxo</h2>
-          <p>
-            Visualize sua posição no fluxo e insira as matérias já feitas para se organizar melhor
-          </p>
-          <button>Saiba mais</button>
         </div>
-        <div class="card">
-          <h2>Avaliação de professor</h2>
-          <p>
-            Avaliação de matéria com feedback, aprovação, indicação e semestre.           </p>
-          <button>Saiba mais</button>
-        </div>
-        <div class="card">
-          <h2>Fóruns</h2>
-          <p>
-            Lista de postagens com atividades diversas, cada uma contendo nome, descrição, proprietário e link.
-          </p>
-          <button>Saiba mais</button>
-        </div>
-      </div>
-        </div>
-        </section>
+    </div>
 
-        <section id="comunidade">
-            <h1 class="titulo">Comunidade única. Você vai adorar!</h1>
-            <div id="habilidades">
-                <div class="cartao">
-                    <h1>“Que projeto incrível vocês desenvolveram! É tão bom ver algo que realmente facilita a vida acadêmica. Vocês conseguiram captar as necessidades reais dos estudantes e transformaram isso em soluções práticas. Estou impressionado com a forma como vocês estão tornando a jornada educacional mais suave e eficiente. Parabéns por fazerem uma diferença tão positiva na vida de tantas pessoas!”</h1>
-                    <h2>Lucas Marconi Licks</h2>
-                </div>
-                <div class="cartao">
-                    <h1>“O site reúne diversas funcionalidades em um só lugar, facilitando a vida do estudante. Além disso, a Avaliação de professores e disciplinas fornece informações valiosas para os alunos.”</h1>
-                    <h2>Lucas Marconi Licks</h2>
-                </div>
-                <div class="cartao">
-                    <h1>“Gostei muito da funcionalidade do Fórum, que cria um espaço para os alunos interagirem, trocarem ideias e informações, e até se ajudarem nos estudos.”</h1>
-                    <h2>Lucas Marconi Licks</h2>
-                </div>
-                <div class="cartao">
-                    <h1>“O site é fácil de navegar, mesmo para quem não está familiarizado com a plataforma. Os menus e botões estão bem organizados e são fáceis de encontrar. Isso facilita a navegação e o uso das funcionalidades.”</h1>
-                    <h2>Lucas Marconi Licks</h2>
-                </div>
-            
+    <div id="comunidade">
+        <h1 class="titulo">Comunidade única. Você vai adorar!</h1>
+        <div id="habilidades">
+            <div class="cartao">
+                <h1>“Que projeto incrível vocês desenvolveram! É tão bom ver algo que realmente facilita a vida acadêmica. Vocês conseguiram captar as necessidades reais dos estudantes e transformaram isso em soluções práticas. Estou impressionado com a forma como vocês estão tornando a jornada educacional mais suave e eficiente. Parabéns por fazerem uma diferença tão positiva na vida de tantas pessoas!”</h1>
             </div>
-        </section>
-
-    <footer>
-        <div id="msg">
-            <h1>< /UnB Connect></h1>
-            <h2>Transformando desafios em conquistas, um passo de cada vez. <br>  Juntos, rumo a uma jornada acadêmica mais .... <br> Vamos fazer a diferença, empoderando sua jornada acadêmica. <br> Junte-se a nós e descubra como facilitar seus estudos.</h2>
+            <div class="cartao">
+                <h1>“O site reúne diversas funcionalidades em um só lugar, facilitando a vida do estudante. Além disso, a Avaliação de professores e disciplinas fornece informações valiosas para os alunos.”</h1>
+            </div>
+            <div class="cartao">
+                <h1>“Gostei muito da funcionalidade do Fórum, que cria um espaço para os alunos interagirem, trocarem ideias e informações, e até se ajudarem nos estudos.”</h1>
+            </div>
+            <div class="cartao">
+                <h1>“O site é fácil de navegar, mesmo para quem não está familiarizado com a plataforma. Os menus e botões estão bem organizados e são fáceis de encontrar. Isso facilita a navegação e o uso das funcionalidades.”</h1>
+            </div>
+        
         </div>
-        <div id="contatos">
-            <h1>Contatos</h1>
-            <ul>
-                <li><img src="../assets/github.png" alt="github"> <a href="https://github.com/DS-AmareloGirassol/" target="_blank">Amarelo Girassol</a></li>
-            </ul>
-        </div>
-    </footer>
+    </div>
 </template>
 
 <script>
+import HeaderComponent from '../components/HeaderComponent.vue';
+
 export default {
 name: 'HomePage',
 
+components: {
+    HeaderComponent,
+},
 data() {
     return {};
 },
@@ -117,13 +74,12 @@ data() {
 <style>
 .container {
     width: 100%;
-    height: 85vh;
+    padding: 100px 0;
     background-color: #10162F;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-right: 80px;
   }
   
   .wave {
@@ -136,31 +92,22 @@ data() {
   }
   
   .content {
-    position: relative;
-    z-index: 1;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    width: 80%;
   }
   
   .card {
-    background-color: #babdca;
+    background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 2px 6px #545558;
-    padding: 10px;
+    padding: 20px;
     text-align: center;
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
-    height: 150px;
-    width: 200px;
-    justify-content: center;
+    width: 300px;
     align-items: center;
-    border: 5px solid #000;
-    border-color: #067133;
-    margin-right: -60px;
-
+    margin: 0px 50px;
     }
   
   .card h2 {
@@ -211,51 +158,12 @@ data() {
     
 }
 
-nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 25px 50px;
-    border-bottom: 2px solid #ffff;
-}
-
-nav xmp{
-    font-family: 'Impact Regular';
-    line-height: 39px;
-    font-size: 32px;
-    letter-spacing: 2px;
-    color: #3A10E5;
-    margin-left: 42px;
-}
-
-nav ul{
-    list-style-type: none;
-    display: flex;
-    gap: 55px;
-}
-
-nav a{
-    font-size: 20px;
-    color: #000;
-    text-decoration: none;
-    font-weight: 700;
-}
-
-nav a:hover{
-    color: #000000;
-}
-
-nav a#menu{
-    display: none;
-}
-
 #informacao{
     display: flex;
     align-items: center;
-    margin: 60px 0px 30px 0px;
+    justify-content: center;
+    margin-top: 100px;
 }
-
-
 
 #sobre h2{
     margin-top: -350px;
@@ -289,8 +197,8 @@ nav a#menu{
 }
 
 #comunidade{
-    height: 550px;
-      
+    padding-top: 50px;
+    height: 50px;
 }
 #comunidade h1.titulo{
     font-size: 45px;
@@ -303,27 +211,24 @@ nav a#menu{
 }
 
 #habilidades{
+    padding-bottom: 100px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: -200px;
-    margin-left: 25PX;
-    
+    margin: auto;    
 }
 
 .cartao{
-    background-color: #9a9ead;
+    margin: 0 30px;
+    background-color: #e3e4e8;
     border-radius: 10px;
-    box-shadow: 0 2px 6px #545558;
-    padding: 20px;
+    padding: 30px;
     text-align: justify;
     margin-bottom: 30px;
     display: flex;
     flex-direction: column;
-    height: 370px;
-    width: 280px;
+    height: 300px;
+    width: 250px;
     justify-content: center;
     align-items: center;
     border: 2px solid #000;
@@ -342,17 +247,6 @@ nav a#menu{
 
 .cartao h2{
     padding-top: 25px;
-}
-
-
-footer{
-    padding: 45px 0;
-    border-top: 2px solid #10162F;
-    display: flex;
-    justify-content: space-around;
-    align-items: baseline;
-    background-color: #076632;
-    height: 300px;
 }
 
 #msg{
@@ -381,7 +275,6 @@ footer{
     width: auto;
     gap: 20px;
     padding: 30px;
-    background-color: red
 }
 
 #contatos h1{

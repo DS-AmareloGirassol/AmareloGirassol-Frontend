@@ -1,7 +1,7 @@
 <template> 
     <header>
-      <h1 class="titulo">
-        <span class="text-unb" > <\UnB</span><span class= "text-Connect" >Connect></span>
+      <h1 class="tituloHeader" @click="goToHome">
+        <span class="text-unb"><\UnB</span><span class= "text-Connect">Connect></span>
       </h1> 
   
       <nav class="header-nav">
@@ -35,6 +35,9 @@ export default {
     this.user_name = localStorage.getItem('user_name')
   },
   methods: {
+    goToHome() {
+      this.$router.push({ name: 'Home' });
+    },
     goToFluxo() {
       this.$router.push({ name: 'Forum' });
     },
@@ -69,7 +72,11 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
+}
+
+.tituloHeader {
+  cursor: pointer;
+}
 
 .text-unb{
   color:#091f77;;
