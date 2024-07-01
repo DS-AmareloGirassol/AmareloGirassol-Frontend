@@ -121,83 +121,6 @@ export default {
 </script>
 
 <style scoped>
-header {
-  background-color: #ffffff;
-  padding: 2px 50px;
-  color: #0b0fdb;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.header-logo {}
-
-.header-nav {
-  display: flex;
-  justify-content: end;
-  align-items: center;
-}
-
-ul {
-  display: flex;
-  flex-direction: row;
-  gap: 50px;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.header-nav-li {
-  padding: 15px;
-  font-size: 20px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.header-nav-li:hover {
-  background-color: #d7d7d8;
-  border-radius: 10px;
-}
-
-.header-account-actions {
-  display: flex;
-  align-items: center;
-}
-
-.header-account-view {
-  display: flex;
-  margin-right: 30px;
-}
-
-.header-account-view-span {
-  display: flex;
-  align-items: center;
-  margin-right: 10px;
-  font-size: 16px;
-}
-
-.header-account-view-img {
-  height: 40px;
-  padding: 10px;
-  cursor: pointer;
-  background-color: #160094;
-  border-radius: 10px;
-}
-
-.header-logout {
-  display: flex;
-}
-
-.header-logout-img {
-  height: 40px;
-  padding: 10px;
-  cursor: pointer;
-  background-color: #009942;
-  border-radius: 10px;
-}
-
 .container {
   background-color: #fff;
   border-radius: 8px;
@@ -316,13 +239,5 @@ ul {
   color: #666;
   text-align: center;
   margin-bottom: 5px;
-}
-
-footer {
-  width: 100%;
-  text-align: center;
-  background-color: #12017D;
-  padding: 8px 0;
-  color: #FFFFFF;
 }
 </style>

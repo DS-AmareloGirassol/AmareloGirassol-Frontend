@@ -64,14 +64,14 @@ export default {
 
 <style scoped> 
 header {
-    background-color: #F0F0F0;
-    padding: 10px 50px;
-    color: #091f77;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  background-color: #ffffff;
+  padding: 2px 50px;
+  color: #0b0fdb;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .tituloHeader {

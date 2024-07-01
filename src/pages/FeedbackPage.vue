@@ -1,175 +1,158 @@
 <template>
-  <div>
-    <header>
-      <div class="logo"> 
-        <h1>Unb<span>Connect</span></h1>
+  <section>
+    <HeaderComponent/>
+
+    <div class="feedback-page">
+      <div class="aval">
+        <h2 class="titulo-page">
+          <span class="text-avaliacao">Feedback Geral Disciplina</span>
+        </h2>
+        <div class="professor">
+          <p>Professor(a): <input type="text" placeholder="Professor"></p>
+        </div>
+        <p>Metodologia</p>
+        <div class="numb-container">
+          <div class="numb">
+            <img src="/src/assets/number-1.png" alt="um">
+          </div>
+          <div class="numb">
+            <img src="/src/assets/number-2.png" alt="dois">
+          </div>
+          <div class="numb">
+            <img src="/src/assets/number-3.png" alt="três">
+          </div>
+          <div class="numb">
+            <img src="/src/assets/number-4.png" alt="quatro">
+          </div>
+          <div class="numb active">
+            <img src="/src/assets/number-5.png" alt="cinco">
+          </div>
+        </div>
+        <p>Trabalhos</p>
+        <div class="numb-container">
+          <div class="numb">
+            <img src="/src/assets/number-1.png" alt="um">
+          </div>
+          <div class="numb">
+            <img src="/src/assets/number-2.png" alt="dois">
+          </div>
+          <div class="numb">
+            <img src="/src/assets/number-3.png" alt="três">
+          </div>
+          <div class="numb">
+            <img src="/src/assets/number-4.png" alt="quatro">
+          </div>
+          <div class="numb active">
+            <img src="/src/assets/number-5.png" alt="cinco">
+          </div>
+        </div>
+        <p>Provas</p>
+        <div class="numb-container">
+          <div class="numb">
+            <img src="/src/assets/number-1.png" alt="um">
+          </div>
+          <div class="numb">
+            <img src="/src/assets/number-2.png" alt="dois">
+          </div>
+          <div class="numb">
+            <img src="/src/assets/number-3.png" alt="três">
+          </div>
+          <div class="numb">
+            <img src="/src/assets/number-4.png" alt="quatro">
+          </div>
+          <div class="numb active">
+            <img src="/src/assets/number-5.png" alt="cinco">
+          </div>
+        </div>
+        <p>Material de Estudo</p>
+        <div class="numb-container">
+          <div class="numb">
+            <img src="/src/assets/number-1.png" alt="um">
+          </div>
+          <div class="numb">
+            <img src="/src/assets/number-2.png" alt="dois">
+          </div>
+          <div class="numb">
+            <img src="/src/assets/number-3.png" alt="três">
+          </div>
+          <div class="numb">
+            <img src="/src/assets/number-4.png" alt="quatro">
+          </div>
+          <div class="numb active">
+            <img src="/src/assets/number-5.png" alt="cinco">
+          </div>
+        </div>
+        <p>Facilidade</p>
+        <div class="numb-container">
+          <div class="numb">
+            <img src="/src/assets/number-1.png" alt="um">
+          </div>
+          <div class="numb">
+            <img src="/src/assets/number-2.png" alt="dois">
+          </div>
+          <div class="numb">
+            <img src="/src/assets/number-3.png" alt="três">
+          </div>
+          <div class="numb">
+            <img src="/src/assets/number-4.png" alt="quatro">
+          </div>
+          <div class="numb active">
+            <img src="/src/assets/number-5.png" alt="cinco">
+          </div>
+        </div>
+        <div class="semestre">
+          <p>Qual semestre cursou esta disciplina</p>
+        </div>
+        <select id="semestre" v-model="form.semestre" class="form-element">
+          <option value="" disabled>Selecione um semestre</option>
+          <option v-for="semestre in semestres" :key="semestre" :value="semestre">{{ semestre }}º Semestre</option>
+        </select>
       </div>
-      <div id="busca">
-        <input type="text" placeholder="Pesquisar"> 
+      <div class="feedback">
+        <h3>Dê seu feedback</h3>
+        <p>Sinta-se à vontade para compartilhar sua opinião sobre a disciplina ou professor</p>
+        <div class="icons-container">
+          <div class="icons">
+            <img src="/src/assets/sad.png" alt="terrível">
+            <small>Emoção</small>
+          </div>
+          <div class="icons">
+            <img src="/src/assets/cansado.png" alt="ruim">
+            <small>Emoção</small>
+          </div>
+          <div class="icons">
+            <img src="/src/assets/happy.png" alt="bom">
+            <small>Emoção</small>
+          </div>
+          <div class="icons active">
+            <img src="/src/assets/lol.png" alt="perfeito">
+            <small>Emoção</small>
+          </div>
+        </div>
+        <div class="comentario">
+          <p>Caso queira adicionar um comentário sobre o tópico acima, utilize a caixa de comentários abaixo:</p>
+          <textarea name="opinion" cols="30" rows="10" placeholder="Deixe um comentário..."></textarea>
+        </div>
+        <form @submit.prevent="submitFeedback">
+          <button type="submit" class="btn">Enviar</button>
+          <button type="button" class="btn1" @click="cancelFeedback">Cancelar</button>
+        </form>
       </div>
-      <div class="links">
-        <a href="about.html">Início</a>
-        <a href="about.html">Avaliação</a>
-        <a href="about.html">Fluxo</a>
-        <a href="about.html">Fórum</a>
-      </div>
-      <div class="icones">
-        <div class="usuário">
-          <a href="usuário.html" class="botao-usuário">
-            <img src="/src/assets/user-avatar.png" class="icone_u" alt="Usuário">
-          </a>
-        </div>
-        <div class="Logout">
-          <a href="#" class="botao-Logout">
-            <img src="/src/assets/Logout.png" alt="Sair" class="icone_l">
-          </a>
-        </div>
-      </div>
-    </header>
-    <div class="aval">
-      <h2 class="titulo-page">
-        <span class="text-avaliacao">Feedback Geral</span><span class="text-disciplina"> Disciplina</span>
-      </h2>
-      <div class="professor">
-        <p>Professor(a): <input type="text" placeholder="Professor"></p>
-      </div>
-      <p>Metodologia</p>
-      <div class="numb-container">
-        <div class="numb">
-          <img src="/src/assets/number-1.png" alt="um">
-        </div>
-        <div class="numb">
-          <img src="/src/assets/number-2.png" alt="dois">
-        </div>
-        <div class="numb">
-          <img src="/src/assets/number-3.png" alt="três">
-        </div>
-        <div class="numb">
-          <img src="/src/assets/number-4.png" alt="quatro">
-        </div>
-        <div class="numb active">
-          <img src="/src/assets/number-5.png" alt="cinco">
-        </div>
-      </div>
-      <p>Trabalhos</p>
-      <div class="numb-container">
-        <div class="numb">
-          <img src="/src/assets/number-1.png" alt="um">
-        </div>
-        <div class="numb">
-          <img src="/src/assets/number-2.png" alt="dois">
-        </div>
-        <div class="numb">
-          <img src="/src/assets/number-3.png" alt="três">
-        </div>
-        <div class="numb">
-          <img src="/src/assets/number-4.png" alt="quatro">
-        </div>
-        <div class="numb active">
-          <img src="/src/assets/number-5.png" alt="cinco">
-        </div>
-      </div>
-      <p>Provas</p>
-      <div class="numb-container">
-        <div class="numb">
-          <img src="/src/assets/number-1.png" alt="um">
-        </div>
-        <div class="numb">
-          <img src="/src/assets/number-2.png" alt="dois">
-        </div>
-        <div class="numb">
-          <img src="/src/assets/number-3.png" alt="três">
-        </div>
-        <div class="numb">
-          <img src="/src/assets/number-4.png" alt="quatro">
-        </div>
-        <div class="numb active">
-          <img src="/src/assets/number-5.png" alt="cinco">
-        </div>
-      </div>
-      <p>Material de Estudo</p>
-      <div class="numb-container">
-        <div class="numb">
-          <img src="/src/assets/number-1.png" alt="um">
-        </div>
-        <div class="numb">
-          <img src="/src/assets/number-2.png" alt="dois">
-        </div>
-        <div class="numb">
-          <img src="/src/assets/number-3.png" alt="três">
-        </div>
-        <div class="numb">
-          <img src="/src/assets/number-4.png" alt="quatro">
-        </div>
-        <div class="numb active">
-          <img src="/src/assets/number-5.png" alt="cinco">
-        </div>
-      </div>
-      <p>Facilidade</p>
-      <div class="numb-container">
-        <div class="numb">
-          <img src="/src/assets/number-1.png" alt="um">
-        </div>
-        <div class="numb">
-          <img src="/src/assets/number-2.png" alt="dois">
-        </div>
-        <div class="numb">
-          <img src="/src/assets/number-3.png" alt="três">
-        </div>
-        <div class="numb">
-          <img src="/src/assets/number-4.png" alt="quatro">
-        </div>
-        <div class="numb active">
-          <img src="/src/assets/number-5.png" alt="cinco">
-        </div>
-      </div>
-      <div class="semestre">
-        <p>Qual semestre cursou esta disciplina</p>
-      </div>
-      <select id="semestre" v-model="form.semestre" class="form-element">
-        <option value="" disabled>Selecione um semestre</option>
-        <option v-for="semestre in semestres" :key="semestre" :value="semestre">{{ semestre }}º Semestre</option>
-      </select>
     </div>
-    <div class="feedback">
-      <h3>Dê seu <span class="highlight">feedback</span></h3>
-      <p>Sinta-se à vontade para compartilhar sua opinião sobre a disciplina ou professor</p>
-      <div class="icons-container">
-        <div class="icons">
-          <img src="/src/assets/sad.png" alt="terrível">
-          <small>Emoção</small>
-        </div>
-        <div class="icons">
-          <img src="/src/assets/cansado.png" alt="ruim">
-          <small>Emoção</small>
-        </div>
-        <div class="icons">
-          <img src="/src/assets/happy.png" alt="bom">
-          <small>Emoção</small>
-        </div>
-        <div class="icons active">
-          <img src="/src/assets/lol.png" alt="perfeito">
-          <small>Emoção</small>
-        </div>
-      </div>
-      <div class="comentario">
-        <p>Caso queira adicionar um comentário sobre o tópico acima, utilize a caixa de comentários abaixo:</p>
-        <textarea name="opinion" cols="30" rows="10" placeholder="Deixe um comentário..."></textarea>
-      </div>
-      <form @submit.prevent="submitFeedback">
-        <button type="submit" class="btn">Enviar</button>
-        <button type="button" class="btn1" @click="cancelFeedback">Cancelar</button>
-      </form>
-    </div>
-    <footer>
-      <p>©2024, UnBConnect.</p>
-      <p>Amarelo Girassol - Desenvolvimento de Software, 2024/1.</p>
-    </footer>
-  </div>
+    <FooterComponent/>
+  </section>
 </template>
 
 <script>
+import HeaderComponent from '../components/HeaderComponent.vue';
+import FooterComponent from '../components/FooterComponent.vue';
+
 export default {
+  components: {
+    HeaderComponent,
+    FooterComponent
+  },
+
   data() {
     return {
       searchQuery: '',
@@ -187,6 +170,7 @@ export default {
   },
   methods: {
     submitFeedback() {
+      console.log(this.metodologiaRating)
       alert('Feedback enviado com sucesso!');
     },
     cancelFeedback() {
@@ -197,33 +181,14 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200. .800;1.200..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200. .800;1.200..800&display=swap');
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
 
+.feedback-page {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
 }
 
-header{
-    width:100%;
-    height: 50px;
-    background-color: #fff;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    border-bottom: 1px solid #2710b2;
-}
-
-.logo{
-    color: #029e46;
-    font-size: 20px;
-    margin-left: 15px;
-    align-self: center;
-    font-family: "Jost", sans-serif normal;
-}
 span{
     color: #12017D;
 
@@ -236,12 +201,12 @@ span{
 
 
 .text-avaliacao{
-	color: #12017D;
+	color: #2710b9;
 	font-size: 35px;
 }
 
 .text-disciplina{
-	color: #12017D;
+	color: #2710b9;
 	font-size: 35px;
 }
 
@@ -308,7 +273,6 @@ body {
 
 
 .aval{
-    background-color: #fff;
     font-size: 90%;
     display: flex;
     flex-direction: column;
@@ -527,18 +491,4 @@ form {
     font-family: "Jost", sans-serif, normal;
 }
 
-footer {
-    background-color: #12017D;
-    padding: 26px 0;
-    margin-top: 20px;
-    text-align: center;
-    position: relative;
-    width: 100%;
-    top: 57px;
-    left: 0;  
-}
-
-footer p {
-  color: #fff;
-}
 </style>
