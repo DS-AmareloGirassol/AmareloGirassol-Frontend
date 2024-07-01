@@ -42,7 +42,7 @@ export default {
       this.$router.push({ name: 'Meu Fluxo' });
     },
     goToDisciplinas() {
-      this.$router.push({ name: 'Forum' });
+      this.$router.push({ name: 'Disciplina' });
     },
     goToForum() {
       this.$router.push({ name: 'Forum' });

@@ -33,7 +33,7 @@
             <!-- Seção de informações da disciplina e botão -->
             <div class="col-auto info-section">
               <div class="info-header">
-                <input type="checkbox" v-model="disciplina.checked" />
+                <input type="checkbox" v-model="disciplina.checked" @change="toggleSelection(disciplina)"/>
                 <p class="code">{{ disciplina.code }}</p>
                 <h2 :class="{ 'highlighted': disciplina.checked }" class="discipline-name">{{ disciplina.name }}</h2>
               </div>
@@ -42,17 +42,13 @@
         </div>
         <!-- Botão "Concluído" -->
         <div class="button-container">
-     <button class="click-button">
+     <button class="click-button" @click="updateSubjectsUser">
        <span>Concluído</span>
        <div class="plus-icon"></div>
      </button>
    </div>
        
       </div>
-
-     
-
-
       <FooterComponent />
     </div>
   </template>
@@ -95,7 +91,8 @@
             checked: false
           },
         ],
-        subjectsList: []
+        subjectsList: [],
+        selectList: []
       }
     },
 
@@ -106,7 +103,7 @@
 
     methods: {
       goToFluxo() {
-        this.$router.push('/fluxo.vue'); 
+        this.$router.push({ name: 'Meu Fluxo' });
       },
       
       async getSubjectList() {
@@ -118,6 +115,25 @@
 
         } catch (err) {
           this.error = 'erro'
+        }
+      },
+
+      async updateSubjectsUser() {
+        try {
+          const token = localStorage.getItem('token')
+          const response = await axios.post('http://localhost:8000/api/users/1/add-subject/', this.selectList, { headers: { authorization:`Token ${token}` } });
+          
+          this.goToFluxo()
+        } catch (err) {
+          this.error = 'erro'
+        }
+      },
+
+      toggleSelection(disciplina) {
+        if (disciplina.checked) {
+          this.selectList.push(disciplina.id);
+        } else {
+          this.selectList = this.selectList.filter(id => id !== disciplina.id);
         }
       }
     }

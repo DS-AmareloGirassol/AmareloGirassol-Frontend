@@ -29,8 +29,8 @@ export default {
       try {
         const user_id = localStorage.getItem('user_id')
         const token = localStorage.getItem('token')
-        
-        const response = await axios.get('http://localhost:8000/api/users/2/subjects/', { headers: { authorization:`Token ${token}` } });
+
+        const response = await axios.get('http://localhost:8000/api/users/1/subjects/', { headers: { authorization:`Token ${token}` } });
 
         this.subjectsList = response.data
 
