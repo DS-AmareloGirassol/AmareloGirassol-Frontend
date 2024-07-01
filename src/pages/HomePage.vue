@@ -12,7 +12,7 @@
         
     <div id="servico">
         <div class="container">
-            <h1> Nossos serviços </h1>
+            <h1> Nossas Funcionalidades </h1>
 
             <div class="content">
                 <div class="card">
