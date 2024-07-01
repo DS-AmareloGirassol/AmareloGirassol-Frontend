@@ -45,7 +45,7 @@ export default defineComponent({
 
     .post-title {
         font-size: 30px;
-        font-weight: 900;
+        font-weight: 600;
         margin-bottom: 20px;
         color: rgba(0, 0, 0, 0.7);
     }
